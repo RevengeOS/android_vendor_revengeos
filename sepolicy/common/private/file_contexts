@@ -1,0 +1,2 @@
+# Sysinit
+/system/bin/sysinit                     u:object_r:sysinit_exec:s0
