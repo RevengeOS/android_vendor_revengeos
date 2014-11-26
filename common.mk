@@ -16,6 +16,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Thank you, please drive thru!
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 
+PRODUCT_COPY_FILES += \
+    vendor/citrus/prebuilt/bin/sysinit:system/bin/sysinit \
+    vendor/citrus/prebuilt/etc/init.citrus.rc:root/init.citrus.rc
+
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/citrus/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
