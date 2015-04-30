@@ -137,6 +137,9 @@ on boot
 # Persistent properties (only created if persist exists)
     mkdir /persist/properties 0770 system system
 
+on property:persist.radio.noril=1
+    setprop ro.radio.noril 1
+
 # sysinit (/system/etc/init.d)
 service sysinit /system/bin/sysinit
     user root
