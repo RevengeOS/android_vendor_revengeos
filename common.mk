@@ -137,3 +137,46 @@ ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
 endif
 
 $(call inherit-product-if-exists, vendor/extra/product.mk)
+
+# Versioning System
+# Citrus-CAF first version.
+PRODUCT_VERSION_MAJOR = MM
+PRODUCT_VERSION_MINOR = STAGING
+PRODUCT_VERSION_MAINTENANCE = LemonDrop
+ifdef CITRUS_BUILD_EXTRA
+    CITRUS_POSTFIX := -$(CITRUS_BUILD_EXTRA)
+endif
+ifndef CITRUS_BUILD_TYPE
+ifeq ($(CITRUS_RELEASE),true)
+    CITRUS_BUILD_TYPE := OFFICIAL
+    PLATFORM_VERSION_CODENAME := OFFICIAL
+    CITRUS_POSTFIX := -$(shell date +"%Y%m%d")
+else
+    CITRUS_BUILD_TYPE := UNOFFICIAL
+    PLATFORM_VERSION_CODENAME := UNOFFICIAL
+    CITRUS_POSTFIX := -$(shell date +"%Y%m%d")
+endif
+endif
+
+ifeq ($(CITRUS_BUILD_TYPE),DM)
+    CITRUS_POSTFIX := -$(shell date +"%Y%m%d")
+endif
+
+ifndef CITRUS_POSTFIX
+    CITRUS_POSTFIX := -$(shell date +"%Y%m%d")
+endif
+
+PLATFORM_VERSION_CODENAME := $(CITRUS_BUILD_TYPE)
+
+# Set all versions
+CITRUS_VERSION := CitrusCAF-$(PRODUCT_VERSION_MINOR)-$(PRODUCT_VERSION_MAINTENANCE)-$(PRODUCT_VERSION_MAJOR)-$(CITRUS_BUILD_TYPE)$(CITRUS_POSTFIX)
+CITRUS_MOD_VERSION := CitrusCAF-$(CITRUS_BUILD)-$(PRODUCT_VERSION_MINOR)-$(CITRUS_BUILD_TYPE)$(CITRUS_POSTFIX)
+PRODUCT_PROPERTY_OVERRIDES += \
+    BUILD_DISPLAY_ID=$(BUILD_ID) \
+    citrus.ota.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE) \
+    ro.citrus.version=$(CITRUS_VERSION) \
+    ro.modversion=$(CITRUS_MOD_VERSION) \
+    ro.citrus.buildtype=$(CITRUS_BUILD_TYPE)
+
+# Theme engine
+include vendor/citrus/config/themes_common.mk
