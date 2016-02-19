@@ -171,10 +171,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     vendor/citrus/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
 
-# Selective SPN list for operator number who has the problem.
-PRODUCT_COPY_FILES += \
-    vendor/citrus/prebuilt/common/etc/selective-spn-conf.xml:system/etc/selective-spn-conf.xml
-
 # Overlays
 PRODUCT_PACKAGE_OVERLAYS += \
 	vendor/citrus/overlay/common
