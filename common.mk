@@ -54,7 +54,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     BluetoothExt \
     Browser \
-    MusicFX \
     libemoji \
     libsepol \
     e2fsck \
@@ -180,3 +179,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Theme engine
 include vendor/citrus/config/themes_common.mk
+
+# Citrus Bloats
+PRODUCT_PACKAGES += \
+AudioFx \
+Eleven \
+Launcher3 
