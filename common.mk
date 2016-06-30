@@ -177,9 +177,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.modversion=$(CITRUS_MOD_VERSION) \
     ro.citrus.buildtype=$(CITRUS_BUILD_TYPE)
 
-# Theme engine
-include vendor/citrus/config/themes_common.mk
-
 # Citrus Bloats
 PRODUCT_PACKAGES += \
 AudioFx \
