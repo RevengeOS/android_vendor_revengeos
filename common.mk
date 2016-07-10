@@ -186,7 +186,8 @@ PRODUCT_PACKAGES += \
 AudioFx \
 Eleven \
 Launcher3 \
-LatinIME
+LatinIME \
+CitrusOTA
 
 # MiXplorer
 PRODUCT_COPY_FILES += \
