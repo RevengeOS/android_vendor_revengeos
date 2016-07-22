@@ -57,7 +57,6 @@ PRODUCT_COPY_FILES += \
 # Misc packages
 PRODUCT_PACKAGES += \
     BluetoothExt \
-    Browser \
     libemoji \
     libsepol \
     e2fsck \
@@ -144,7 +143,7 @@ $(call inherit-product-if-exists, vendor/extra/product.mk)
 # Versioning System
 # Citrus-CAF first version.
 PRODUCT_VERSION_MAJOR = MM
-PRODUCT_VERSION_MAINTENANCE = STAGING
+PRODUCT_VERSION_MAINTENANCE = 6.0.1
 ifdef CITRUS_BUILD_EXTRA
     CITRUS_POSTFIX := -$(CITRUS_BUILD_EXTRA)
 endif
@@ -187,9 +186,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Citrus Bloats
 PRODUCT_PACKAGES += \
-AudioFx \
 Eleven \
-Launcher3 \
+Trebuchet \
 LatinIME \
 CitrusOTA
 
