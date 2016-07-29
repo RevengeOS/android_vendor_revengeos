@@ -192,11 +192,6 @@ Launcher3 \
 LatinIME \
 CitrusOTA
 
-# MiXplorer
-PRODUCT_COPY_FILES += \
-vendor/citrus/prebuilt/common/app/MiXplorer/mixplorer.apk:system/app/MiXplorer/mixplorer.apk \
-vendor/citrus/prebuilt/common/bin/72-mixplorer.sh:system/addon.d/72-mixplorer.sh
-
 #Themes
  include vendor/citrus/config/themes_common.mk 
 
