@@ -52,7 +52,7 @@ endif
 ifeq (arm64,$(TARGET_ARCH))
 # AARCH64 ROM TOOLCHAIN INFO
 UBER_AND_PATH := prebuilts/gcc/$(HOST_PREBUILT_TAG)/aarch64/aarch64-linux-android-4.9
-UBER_AND := $(shell $(UBER_AND_PATH)/bin/aarch64-linux-android-gcc --version)
+UBER_AND := $(shell $(UBER_AND_PATH)/bin/aarch64-linux-android-gcc --version 2>&1)
 UBER_AND_VERSION_NUMBER := $(shell $(UBER_AND_PATH)/bin/aarch64-linux-android-gcc -dumpversion 2>&1)
 UBER_AND_DATE := $(filter 20150% 20151% 20160% 20161%,$(UBER_AND))
 ifneq ($(filter (UBERTC%),$(UBER_AND)),)
@@ -74,7 +74,7 @@ ifneq ($(TARGET_GCC_VERSION_ARM64),)
 else
   UBER_TC_PATH := prebuilts/gcc/$(HOST_PREBUILT_TAG)/aarch64/aarch64-linux-android-4.9
 endif
-UBER_TC_VERSION := $(shell $(UBER_TC_PATH)/bin/aarch64-linux-android-gcc --version)
+UBER_TC_VERSION := $(shell $(UBER_TC_PATH)/bin/aarch64-linux-android-gcc --version 2>&1)
 UBER_TC_VERSION_NUMBER := $(shell $(UBER_TC_PATH)/bin/aarch64-linux-android-gcc -dumpversion 2>&1)
 UBER_TC_DATE := $(filter 20150% 20151% 20160% 20161%,$(UBER_TC_VERSION))
 ifneq ($(filter (UBERTC%),$(UBER_TC_VERSION)),)
