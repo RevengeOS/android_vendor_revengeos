@@ -218,7 +218,8 @@ Music \
 Gallery2 \
 Launcher3 \
 LatinIME \
-CitrusOTA
+CitrusOTA \
+Screencast
 
 #Themes
  include vendor/citrus/config/themes_common.mk 
