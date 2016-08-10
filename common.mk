@@ -171,7 +171,7 @@ $(call inherit-product-if-exists, vendor/extra/product.mk)
 # Versioning System
 # Citrus-CAF first version.
 PRODUCT_VERSION_MAJOR = MM
-PRODUCT_VERSION_MINOR = 1.1
+PRODUCT_VERSION_MINOR = 1.3
 ifdef CITRUS_BUILD_EXTRA
     CITRUS_POSTFIX := -$(CITRUS_BUILD_EXTRA)
 endif
