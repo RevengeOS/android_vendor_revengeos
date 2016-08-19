@@ -215,6 +215,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Citrus Bloats
 PRODUCT_PACKAGES += \
 Music \
+MusicFX \
 Gallery2 \
 Launcher3 \
 LatinIME \
