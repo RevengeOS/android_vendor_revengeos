@@ -167,10 +167,12 @@ PRODUCT_PACKAGE_OVERLAYS += \
 # Proprietary latinime libs needed for Keyboard swyping
 ifneq ($(filter arm64,$(TARGET_ARCH)),)
 PRODUCT_COPY_FILES += \
-    vendor/citrus/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so
+    vendor/citrus/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so \
+    vendor/citrus/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
 else
 PRODUCT_COPY_FILES += \
-    vendor/citrus/prebuilt/common/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so
+    vendor/citrus/prebuilt/common/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so \
+    vendor/citrus/prebuilt/common/lib64/libjni_latinimegoogle.so:system/lib64/libjni_latinimegoogle.so
 endif
 
 # by default, do not update the recovery with system updates
