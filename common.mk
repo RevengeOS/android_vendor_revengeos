@@ -183,6 +183,9 @@ endif
 
 PLATFORM_SECURITY_PATCH := ""
 
+# Recommend using the non debug dexpreopter
+USE_DEX2OAT_DEBUG ?= false
+
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 
 # Versioning System
@@ -225,7 +228,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.citrus.buildtype=$(CITRUS_BUILD_TYPE) \
     ro.citrus.flavour=$(PRODUCT_VERSION_FLAVOUR)
 
-
 # Citrus Bloats
 PRODUCT_PACKAGES += \
 MusicFX \
@@ -244,7 +246,6 @@ MargaritaTheme
 
 #Themes
 # include vendor/citrus/config/themes_common.mk
-
 
 # DU Utils Library
 PRODUCT_PACKAGES += \
