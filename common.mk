@@ -59,9 +59,9 @@ endif
 PRODUCT_COPY_FILES += \
     vendor/citrus/prebuilt/common/bin/sysinit:system/bin/sysinit \
     vendor/citrus/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
-    vendor/citrus/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit 
+    vendor/citrus/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 
-# SuperSu 
+# SuperSu
 PRODUCT_COPY_FILES += \
  vendor/citrus/prebuilt/common/etc/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip
 
@@ -222,8 +222,11 @@ LatinIME \
 CitrusOTA \
 Screencast
 
+# Build Chromium for Snapdragon (PA Browser)
+PRODUCT_PACKAGES += PA_Browser
+ 
 #Themes
- include vendor/citrus/config/themes_common.mk 
+ include vendor/citrus/config/themes_common.mk
 
 # DU Utils Library
 PRODUCT_PACKAGES += \
