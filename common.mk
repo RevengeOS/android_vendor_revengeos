@@ -222,9 +222,15 @@ LatinIME \
 CitrusOTA \
 Screencast
 
-# Build Chromium for Snapdragon (PA Browser)
+# Build Chromium for Snapdragon (PA Browser) optionally
+ifeq ($(SHIP_WITH_PA_BROWSER),true)
 PRODUCT_PACKAGES += PA_Browser
- 
+endif
+# Build AOSP Browser if called
+ifeq ($(SHIP_WITH_BROWSER),true)
+PRODUCT_PACKAGES += Browser
+endif
+
 #Themes
  include vendor/citrus/config/themes_common.mk
 
