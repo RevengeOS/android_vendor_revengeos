@@ -171,7 +171,7 @@ $(call inherit-product-if-exists, vendor/extra/product.mk)
 # Versioning System
 # Citrus-CAF first version.
 PRODUCT_VERSION_MAJOR = MM
-PRODUCT_VERSION_MINOR = 1.3
+PRODUCT_VERSION_MINOR = 2.0
 ifdef CITRUS_BUILD_EXTRA
     CITRUS_POSTFIX := -$(CITRUS_BUILD_EXTRA)
 endif
@@ -218,25 +218,14 @@ Music \
 MusicFX \
 Gallery2 \
 Launcher3 \
-LatinIME \
-CitrusOTA \
-Screencast
-
-# Build Chromium for Snapdragon (PA Browser) optionally
-ifeq ($(SHIP_WITH_PA_BROWSER),true)
-PRODUCT_PACKAGES += PA_Browser
-endif
-# Build AOSP Browser if called
-ifeq ($(SHIP_WITH_BROWSER),true)
-PRODUCT_PACKAGES += Browser
-endif
+LatinIME
 
 #Themes
- include vendor/citrus/config/themes_common.mk
+# include vendor/citrus/config/themes_common.mk
 
 # DU Utils Library
-PRODUCT_PACKAGES += \
-    org.dirtyunicorns.utils
+# PRODUCT_PACKAGES += \
+#    org.dirtyunicorns.utils
 
-PRODUCT_BOOT_JARS += \
-    org.dirtyunicorns.utils
+#PRODUCT_BOOT_JARS += \
+#    org.dirtyunicorns.utils
