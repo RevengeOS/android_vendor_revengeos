@@ -28,7 +28,7 @@
 /persist/properties(/.*)?         u:object_r:persist_property_file:s0
 
 # Themes
-/data/system/theme(/.*)?  u:object_r:theme_data_file:s0
+#/data/system/theme(/.*)?  u:object_r:theme_data_file:s0
 
 # LiveDisplay
 /sys/devices/virtual/graphics/fb0/aco           u:object_r:livedisplay_sysfs:s0
