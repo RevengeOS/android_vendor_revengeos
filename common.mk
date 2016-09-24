@@ -220,6 +220,9 @@ ifeq ($(CITRUS_RELEASE),true)
 include vendor/citrus-priv/keys.mk
 endif
 
+# include definitions for SDCLANG
+include vendor/citrus/build/sdclang/sdclang.mk
+
 # Versioning System
 # Citrus-CAF first version.
 CITRUS_VERSION_FLAVOUR = KeyLime
