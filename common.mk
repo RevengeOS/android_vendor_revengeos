@@ -218,9 +218,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Citrus Bloats
 PRODUCT_PACKAGES += \
-Music \
 MusicFX \
-Gallery2 \
+SnapdragonGallery \
+SnapdragonMusic \
 Launcher3 \
 LatinIME
 
