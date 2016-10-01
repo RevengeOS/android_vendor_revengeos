@@ -104,6 +104,9 @@ media.recorder.show_manufacturer_and_model=true
 # Add our overlays
 DEVICE_PACKAGE_OVERLAYS += vendor/revengeos/overlay/common
 
+# Don't compile SystemUITests
+EXCLUDE_SYSTEMUI_TESTS := true
+
 # include definitions for SDCLANG
 include vendor/revengeos/build/sdclang/sdclang.mk
 
