@@ -69,6 +69,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
  vendor/citrus/prebuilt/common/etc/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip
 
+# Substratum
+PRODUCT_COPY_FILES += \
+vendor/citrus/prebuilt/common/app/Substratum/Substratum.apk:system/app/Substratum/Substratum.apk
+
 # Init file
 PRODUCT_COPY_FILES += \
     vendor/citrus/prebuilt/common/etc/init.local.rc:root/init.local.rc
@@ -111,7 +115,7 @@ PRODUCT_PACKAGES += \
     sqlite3 \
     strace \
     Terminal \
-		masquerade
+    masquerade
 
 # Stagefright FFMPEG plugin
 PRODUCT_PACKAGES += \
