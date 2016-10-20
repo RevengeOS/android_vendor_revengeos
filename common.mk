@@ -225,7 +225,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Citrus Bloats
 PRODUCT_PACKAGES += \
 MusicFX \
-SnapdragonCamera \
+Camera3 \
 SnapdragonGallery \
 SnapdragonMusic \
 Launcher3 \
