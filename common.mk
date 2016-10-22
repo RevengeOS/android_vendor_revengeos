@@ -229,7 +229,8 @@ Camera3 \
 SnapdragonGallery \
 SnapdragonMusic \
 Launcher3 \
-LatinIME
+LatinIME \
+LiveWallpapersPicker
 
 #Themes
 # include vendor/citrus/config/themes_common.mk
