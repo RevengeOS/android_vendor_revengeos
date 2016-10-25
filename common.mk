@@ -236,8 +236,8 @@ LiveWallpapersPicker
 # include vendor/citrus/config/themes_common.mk
 
 # DU Utils Library
-# PRODUCT_PACKAGES += \
-#    org.dirtyunicorns.utils
+PRODUCT_PACKAGES += \
+    org.dirtyunicorns.utils
 
-#PRODUCT_BOOT_JARS += \
-#    org.dirtyunicorns.utils
+PRODUCT_BOOT_JARS += \
+    org.dirtyunicorns.utils
