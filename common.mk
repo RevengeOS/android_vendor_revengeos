@@ -232,10 +232,12 @@ MusicFX \
 Camera2 \
 SnapdragonGallery \
 SnapdragonMusic \
-Launcher3 \
+SnapdragonLauncher \
 LatinIME \
 LiveWallpapersPicker \
-AboutCitrus
+AboutCitrus \
+Browser \
+
 
 #Themes
 # include vendor/citrus/config/themes_common.mk
