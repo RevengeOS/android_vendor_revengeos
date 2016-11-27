@@ -232,7 +232,7 @@ MusicFX \
 Camera2 \
 SnapdragonGallery \
 SnapdragonMusic \
-SnapdragonLauncher \
+Launcher3 \
 LatinIME \
 LiveWallpapersPicker \
 AboutCitrus \
