@@ -144,6 +144,7 @@ PRODUCT_PACKAGES += \
 
 # Include librsjni explicitly to workaround GMS issue
 PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full \
     librsjni
 
 # Mms depends on SoundRecorder for recorded audio messages
