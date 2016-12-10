@@ -9,7 +9,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enterprise_mode=1 \
     ro.com.android.dateformat=MM-dd-yyyy \
     ro.com.android.dataroaming=false \
-    ro.com.android.mobiledata=false
+    ro.com.android.mobiledata=false \
+    ro.setupwizard.rotation_locked=true
+
 
 # RecueParty? No thanks.
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.enable_rescue=false
