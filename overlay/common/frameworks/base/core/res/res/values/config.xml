@@ -27,6 +27,9 @@
     <string name="config_mms_user_agent">AOSP</string>
     <string name="config_mms_user_agent_profile_url">http://www.google.com/oha/rdf/ua-profile-kila.xml</string>
 
+    <!-- Flag indicating which package name can access the persistent data partition -->
+    <string name="config_persistentDataPackageName" translatable="false">com.google.android.gms</string>
+
     <!-- Defines the default set of global actions. Actions may still be disabled or hidden based
          on the current state of the device. -->
     <string-array translatable="false" name="config_globalActionsList">
