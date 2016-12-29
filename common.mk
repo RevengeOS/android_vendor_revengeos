@@ -226,13 +226,10 @@ PRODUCT_PACKAGES += \
 MusicFX \
 Camera2 \
 SnapdragonGallery \
-SnapdragonMusic \
 Launcher3 \
 LatinIME \
 LiveWallpapersPicker \
-AboutCitrus \
-Browser \
-
+AboutCitrus 
 
 #Themes
 # include vendor/citrus/config/themes_common.mk
