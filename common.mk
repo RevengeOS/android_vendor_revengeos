@@ -111,7 +111,8 @@ PRODUCT_PACKAGES += \
     strace \
     Terminal \
     masquerade \
-    libbthost_if
+    libbthost_if \
+    WallpaperPicker
 
 # Stagefright FFMPEG plugin
 PRODUCT_PACKAGES += \
