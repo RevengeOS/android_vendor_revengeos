@@ -1,4 +1,8 @@
 # Target-specific configuration
+
+# Bring in Qualcomm helper macros
+include vendor/citrus/build/core/qcom_utils.mk
+
 ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
     B_FAMILY := msm8226 msm8610 msm8974
     B64_FAMILY := msm8992 msm8994
