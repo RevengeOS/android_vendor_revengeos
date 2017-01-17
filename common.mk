@@ -55,6 +55,13 @@ PRODUCT_COPY_FILES += \
     vendor/citrus/prebuilt/common/bin/blacklist:system/addon.d/blacklist \
     vendor/citrus/prebuilt/common/bin/whitelist:system/addon.d/whitelist \
 
+ifeq ($(AB_OTA_UPDATER),true)
+PRODUCT_COPY_FILES += \
+    vendor/citrus/prebuilt/common/bin/backuptool_ab.sh:system/bin/backuptool_ab.sh \
+    vendor/citrus/prebuilt/common/bin/backuptool_ab.functions:system/bin/backuptool_ab.functions \
+    vendor/citrus/prebuilt/common/bin/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
+endif
+
 # Boot animation include
 ifneq ($(TARGET_SCREEN_WIDTH) $(TARGET_SCREEN_HEIGHT),$(space))
 
