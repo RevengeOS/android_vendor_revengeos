@@ -229,7 +229,7 @@ SnapdragonGallery \
 Launcher3 \
 LatinIME \
 LiveWallpapersPicker \
-AboutCitrus 
+AboutCitrus
 
 #Themes
 # include vendor/citrus/config/themes_common.mk
@@ -242,7 +242,7 @@ PRODUCT_BOOT_JARS += \
     org.dirtyunicorns.utils
 
 # Custom off-mode charger
-ifneq ($(WITH_CM_CHARGER),false)
+ifneq ($(WITH_OWN_CHARGER),true)
 PRODUCT_PACKAGES += \
     charger_res_images \
     cm_charger_res_images \

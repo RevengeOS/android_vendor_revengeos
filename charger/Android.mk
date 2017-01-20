@@ -1,3 +1,4 @@
+ifneq ($(WITH_OWN_CHARGER),true)
 LOCAL_PATH := $(call my-dir)
 
 # Set healthd_density to the density bucket of the device.
@@ -68,3 +69,4 @@ include $(BUILD_PHONY_PACKAGE)
 
 _add-charger-image :=
 _img_modules :=
+endif # WITH_OWN_CHARGER
