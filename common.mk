@@ -183,7 +183,7 @@ $(call inherit-product-if-exists, vendor/extra/product.mk)
 # Versioning System
 # Citrus-CAF first version.
 PRODUCT_VERSION_FLAVOUR = TANGERINE
-PRODUCT_VERSION = 3.0
+PRODUCT_VERSION = 3.1
 ifdef CITRUS_BUILD_EXTRA
     CITRUS_POSTFIX := -$(CITRUS_BUILD_EXTRA)
 endif
@@ -249,3 +249,7 @@ PRODUCT_PACKAGES += \
     font_log.png \
     libhealthd.cm
 endif
+
+PRODUCT_PACKAGES += \
+   OmniStyle \
+   OmniJaws
