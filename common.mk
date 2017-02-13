@@ -110,7 +110,8 @@ PRODUCT_PACKAGES += \
     sqlite3 \
     strace \
     Terminal \
-    masquerade
+    masquerade \
+    libbthost_if
 
 # Stagefright FFMPEG plugin
 PRODUCT_PACKAGES += \
