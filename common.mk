@@ -110,7 +110,7 @@ PRODUCT_PACKAGES += \
     sqlite3 \
     strace \
     Terminal \
-    masquerade \
+    ThemeInterfacer \
     libbthost_if \
     WallpaperPicker
 
