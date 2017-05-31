@@ -263,6 +263,3 @@ endif
 PRODUCT_PACKAGES += \
    OmniStyle \
    OmniJaws
-
-# Recommend using non debug dexpreopter
-USE_DEX2OAT_DEBUG ?= false
