@@ -239,7 +239,8 @@ SnapdragonGallery \
 Launcher3 \
 LatinIME \
 LiveWallpapersPicker \
-AboutCitrus
+AboutCitrus \
+CitrusHeaders
 
 #Themes
 # include vendor/citrus/config/themes_common.mk
