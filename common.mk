@@ -234,6 +234,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Citrus Bloats
 PRODUCT_PACKAGES += \
 MusicFX \
+audio_effects.conf \
+libcyanogen-dsp \
 Camera2 \
 Gallery2 \
 Launcher3 \
@@ -264,4 +266,3 @@ endif
 PRODUCT_PACKAGES += \
    OmniStyle \
    OmniJaws
-
