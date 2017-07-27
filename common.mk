@@ -235,7 +235,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
 MusicFX \
 Camera2 \
-SnapdragonGallery \
+Gallery2 \
 Launcher3 \
 LatinIME \
 LiveWallpapersPicker \
@@ -264,3 +264,4 @@ endif
 PRODUCT_PACKAGES += \
    OmniStyle \
    OmniJaws
+
