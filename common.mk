@@ -242,7 +242,8 @@ Launcher3 \
 LatinIME \
 LiveWallpapersPicker \
 AboutCitrus \
-CitrusHeaders
+CitrusHeaders \
+CTRWalls
 
 #Themes
 # include vendor/citrus/config/themes_common.mk
