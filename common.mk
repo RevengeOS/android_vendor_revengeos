@@ -243,7 +243,8 @@ LatinIME \
 LiveWallpapersPicker \
 AboutCitrus \
 CitrusHeaders \
-CTRWalls
+CTRWalls \
+Screencast
 
 #Themes
 # include vendor/citrus/config/themes_common.mk
