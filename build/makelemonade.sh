@@ -32,7 +32,7 @@ START=$(date +%s)
 if [ "$SYNC" == "sync" ]
 then
    echo -e "${bldblu}Syncing latest sources ${txtrst}"
-   repo sync
+   repo sync -c --no-tags --no-clone-bundle -j8
 fi
 
 # Setup environment
