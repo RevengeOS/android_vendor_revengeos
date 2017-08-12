@@ -37,6 +37,8 @@ fi
 
 # Setup environment
 echo -e "${bldblu}Setting up build environment ${txtrst}"
+export KBUILD_BUILD_USER=$USER
+export KBUILD_BUILD_HOST=$HOST
 . build/envsetup.sh
 
 # Setup ccache
