@@ -48,7 +48,7 @@ export CCACHE_DIR="~/.ccache"
 
 # Set the device
 echo -e "Setting the device... ${txtrst}"
-breakfast "$DEVICE-userdebug"
+breakfast "citrus_$DEVICE-userdebug"
 
 # Clean out folder
 if [ "$CLEAN" == "clean" ]
