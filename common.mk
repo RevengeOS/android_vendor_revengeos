@@ -150,10 +150,6 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
     librsjni
 
-# Mms depends on SoundRecorder for recorded audio messages
-PRODUCT_PACKAGES += \
-    SoundRecorder
-
 # TCP Connection Management
 PRODUCT_PACKAGES += tcmiface
 PRODUCT_BOOT_JARS += tcmiface
@@ -244,7 +240,7 @@ LiveWallpapersPicker \
 AboutCitrus \
 CitrusHeaders \
 CTRWalls \
-Screencast
+Recorder 
 
 #Themes
 # include vendor/citrus/config/themes_common.mk
