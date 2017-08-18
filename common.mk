@@ -240,10 +240,12 @@ LiveWallpapersPicker \
 AboutCitrus \
 CitrusHeaders \
 CTRWalls \
-Recorder 
+Recorder \
+MargaritaTheme
 
 #Themes
 # include vendor/citrus/config/themes_common.mk
+
 
 # DU Utils Library
 PRODUCT_PACKAGES += \
