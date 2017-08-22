@@ -242,7 +242,8 @@ AboutCitrus \
 CitrusHeaders \
 CTRWalls \
 Recorder \
-MargaritaTheme
+MargaritaTheme \
+Jelly
 
 #Themes
 # include vendor/citrus/config/themes_common.mk
