@@ -21,8 +21,7 @@ PRODUCT_PROPERTY_OVERRIDES += ro.opa.eligible_device=true
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 
 PRODUCT_COPY_FILES += \
-    vendor/citrus/prebuilt/bin/sysinit:system/bin/sysinit \
-    vendor/citrus/prebuilt/etc/init.citrus.rc:root/init.citrus.rc
+    vendor/citrus/prebuilt/bin/sysinit:system/bin/sysinit
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
@@ -71,7 +70,7 @@ PRODUCT_COPY_FILES += \
 
 # Init file
 PRODUCT_COPY_FILES += \
-    vendor/citrus/prebuilt/common/etc/init.local.rc:root/init.local.rc
+    vendor/citrus/prebuilt/common/etc/init.local.rc:root/init.citrus.rc
 
 # Bring in camera effects
 PRODUCT_COPY_FILES +=  \

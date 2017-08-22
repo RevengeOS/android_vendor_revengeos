@@ -157,6 +157,21 @@ service bugreport /system/bin/dumpstate -d -p -B -z \
     disabled
     keycodes 114 115 116
 
+on post-fs-data
+    # Run sysinit
+    start sysinit
+
+# adb over network
+on property:adb.network.port=*
+    setprop service.adb.tcp.port ${adb.network.port}
+
+on property:service.adb.tcp.port=5555
+    stop adbd
+    start adbd
+on property:service.adb.tcp.port=-1
+    stop adbd
+    start adbd
+
 # Configure IO scheduler
 on property:sys.io.scheduler=*
     write /sys/block/mmcblk0/queue/scheduler ${sys.io.scheduler}
