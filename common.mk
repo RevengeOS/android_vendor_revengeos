@@ -20,9 +20,6 @@ PRODUCT_PROPERTY_OVERRIDES += ro.opa.eligible_device=true
 # Thank you, please drive thru!
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 
-PRODUCT_COPY_FILES += \
-    vendor/citrus/prebuilt/bin/sysinit:system/bin/sysinit
-
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/citrus/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
