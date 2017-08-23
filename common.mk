@@ -240,7 +240,6 @@ LatinIME \
 LiveWallpapersPicker \
 AboutCitrus \
 CitrusHeaders \
-CTRWalls \
 Recorder \
 MargaritaTheme \
 Jelly
