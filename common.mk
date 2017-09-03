@@ -11,6 +11,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.dataroaming=false \
     ro.com.android.mobiledata=false
 
+# RecueParty? No thanks.
+PRODUCT_PROPERTY_OVERRIDES += persist.sys.enable_rescue=false
+
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1
 
