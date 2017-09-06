@@ -257,7 +257,7 @@ PRODUCT_BOOT_JARS += \
     org.dirtyunicorns.utils
 
 # Custom off-mode charger
-ifneq ($(WITH_OWN_CHARGER),true)
+ifneq ($(WITH_CM_CHARGER),false)
 PRODUCT_PACKAGES += \
     charger_res_images \
     cm_charger_res_images \
