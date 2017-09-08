@@ -129,21 +129,10 @@ PRODUCT_PACKAGES += \
     messaging \
     CellBroadcastReceiver \
     Stk \
-    telephony-ext \
-    rcscommon
+    telephony-ext
 
 PRODUCT_BOOT_JARS += \
-    telephony-ext \
-    rcscommon
-
-#RCS //Needed for Contacts and Mms Apps
-PRODUCT_PACKAGES += \
-    rcs_service_aidl \
-    rcs_service_aidl.xml \
-    rcs_service_aidl_static \
-    rcs_service_api \
-    rcs_service_api.xml \
-    rcscommon.xml
+    telephony-ext
 
 # Include librsjni explicitly to workaround GMS issue
 PRODUCT_PACKAGES += \
@@ -186,28 +175,24 @@ ifneq ($(TARGET_BUILD_VARIANT),eng)
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.adb.secure=1
 endif
 
-PLATFORM_SECURITY_PATCH := ""
-
-# Recommend using the non debug dexpreopter
-USE_DEX2OAT_DEBUG ?= false
+#PLATFORM_SECURITY_PATCH := ""
 
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 
 # Versioning System
 # Citrus-CAF first version.
-PRODUCT_VERSION_FLAVOUR = TANGERINE
-PRODUCT_VERSION = 3.5
+PLATFORM_VERSION_CODENAME := OREO
+CITRUS_VERSION_FLAVOUR = KeyLime
+CITRUS_VERSION_CODENAME = 4.0
 ifdef CITRUS_BUILD_EXTRA
     CITRUS_POSTFIX := -$(CITRUS_BUILD_EXTRA)
 endif
 ifndef CITRUS_BUILD_TYPE
 ifeq ($(CITRUS_RELEASE),true)
     CITRUS_BUILD_TYPE := OFFICIAL
-    PLATFORM_VERSION_CODENAME := OFFICIAL
     CITRUS_POSTFIX := -$(shell date +"%Y%m%d")
 else
     CITRUS_BUILD_TYPE := UNOFFICIAL
-    PLATFORM_VERSION_CODENAME := UNOFFICIAL
     CITRUS_POSTFIX := -$(shell date +"%Y%m%d")
 endif
 endif
@@ -220,43 +205,35 @@ ifndef CITRUS_POSTFIX
     CITRUS_POSTFIX := -$(shell date +"%Y%m%d")
 endif
 
-PLATFORM_VERSION_CODENAME := $(CITRUS_BUILD_TYPE)
-
 # Set all versions
-CITRUS_VERSION := CitrusCAF-$(PRODUCT_VERSION)-$(PRODUCT_VERSION_FLAVOUR)-$(CITRUS_BUILD_TYPE)$(CITRUS_POSTFIX)
-CITRUS_MOD_VERSION := CitrusCAF-$(CITRUS_BUILD)-$(PRODUCT_VERSION)-$(PRODUCT_VERSION_FLAVOUR)-$(CITRUS_BUILD_TYPE)$(CITRUS_POSTFIX)
+CITRUS_VERSION := CitrusCAF-$(CITRUS_VERSION_CODENAME)-$(CITRUS_VERSION_FLAVOUR)-$(PLATFORM_VERSION_CODENAME)-$(CITRUS_BUILD_TYPE)$(CITRUS_POSTFIX)
+CITRUS_MOD_VERSION := CitrusCAF-$(CITRUS_VERSION_CODENAME)-$(CITRUS_VERSION_FLAVOUR)-$(PLATFORM_VERSION_CODENAME)-$(CITRUS_BUILD)-$(CITRUS_BUILD_TYPE)$(CITRUS_POSTFIX)
 PRODUCT_PROPERTY_OVERRIDES += \
     BUILD_DISPLAY_ID=$(BUILD_ID) \
     citrus.ota.version=$(CITRUS_MOD_VERSION) \
-    ro.citrus.version=$(PRODUCT_VERSION)-$(PRODUCT_VERSION_FLAVOUR) \
+    ro.citrus.version=$(CITRUS_VERSION_CODENAME)-$(CITRUS_VERSION_FLAVOUR) \
     ro.modversion=$(CITRUS_MOD_VERSION) \
     ro.citrus.buildtype=$(CITRUS_BUILD_TYPE) \
-    ro.citrus.flavour=$(PRODUCT_VERSION_FLAVOUR)
+    ro.citrus.flavour=$(CITRUS_VERSION_FLAVOUR)
 
 # Citrus Bloats
 PRODUCT_PACKAGES += \
-MusicFX \
-audio_effects.conf \
-libcyanogen-dsp \
 Camera2 \
 Gallery2 \
 Launcher3 \
 LatinIME \
 LiveWallpapersPicker \
 AboutCitrus \
-CitrusHeaders \
-Recorder \
-MargaritaTheme \
 Jelly
 
 #Themes
 # include vendor/citrus/config/themes_common.mk
 
 # DU Utils Library
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     org.dirtyunicorns.utils
 
-PRODUCT_BOOT_JARS += \
+#PRODUCT_BOOT_JARS += \
     org.dirtyunicorns.utils
 
 # Custom off-mode charger
@@ -268,6 +245,6 @@ PRODUCT_PACKAGES += \
     libhealthd.cm
 endif
 
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
    OmniStyle \
    OmniJaws
