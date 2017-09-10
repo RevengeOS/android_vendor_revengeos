@@ -73,6 +73,10 @@ PRODUCT_COPY_FILES += \
     vendor/citrus/prebuilt/common/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip:system/media/bootanimation.zip
 endif
 
+# Dialer fix
+PRODUCT_COPY_FILES +=  \
+    vendor/citrus/prebuilt/common/etc/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
+
 # init.d support
 PRODUCT_COPY_FILES += \
     vendor/citrus/prebuilt/common/bin/sysinit:system/bin/sysinit \
