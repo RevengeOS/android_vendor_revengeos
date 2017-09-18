@@ -57,6 +57,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/effects/Unlock.ogg:system/media/audio/ui/Unlock.ogg \
     $(LOCAL_PATH)/effects/VideoRecord.ogg:system/media/audio/ui/VideoRecord.ogg \
     $(LOCAL_PATH)/effects/VideoStop.ogg:system/media/audio/ui/VideoStop.ogg \
+    $(LOCAL_PATH)/effects/VolumeIncremental.ogg:system/media/audio/ui/VolumeIncremental.ogg \
     $(LOCAL_PATH)/effects/WirelessChargingStarted.ogg:system/media/audio/ui/WirelessChargingStarted.ogg \
     $(LOCAL_PATH)/notifications/Ariel.ogg:system/media/audio/notifications/Ariel.ogg \
     $(LOCAL_PATH)/notifications/Birdsong.ogg:system/media/audio/notifications/Birdsong.ogg \
