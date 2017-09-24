@@ -765,3 +765,8 @@ function fixup_common_out_dir() {
 if [ -n "$JACK_SERVER_VM_ARGUMENTS" ] && [ -z "$ANDROID_JACK_VM_ARGS" ]; then
     export ANDROID_JACK_VM_ARGS=$JACK_SERVER_VM_ARGUMENTS
 fi
+
+# SDClang Environment Variables
+export SDCLANG_AE_CONFIG=vendor/citrus/build/sdclang/sdclangAE.json
+export SDCLANG_CONFIG=vendor/citrus/build/sdclang/sdclang.json
+export SDCLANG_SA_ENABLED=false
