@@ -73,6 +73,10 @@ PRODUCT_COPY_FILES += \
     vendor/citrus/prebuilt/common/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip:system/media/bootanimation.zip
 endif
 
+# Signature compatibility validation
+PRODUCT_COPY_FILES += \
+    vendor/citrus/prebuilt/common/bin/otasigcheck.sh:install/bin/otasigcheck.sh
+
 # Dialer fix
 PRODUCT_COPY_FILES +=  \
     vendor/citrus/prebuilt/common/etc/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
