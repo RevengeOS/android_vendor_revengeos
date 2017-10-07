@@ -198,6 +198,11 @@ endif
 
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 
+# build official builds with private keys
+ifeq ($(CITRUS_RELEASE),true)
+include vendor/citrus-priv/keys.mk
+endif
+
 # Versioning System
 # Citrus-CAF first version.
 PLATFORM_VERSION_CODENAME := OREO
