@@ -22,8 +22,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Mark as eligible for Google Assistant
 PRODUCT_PROPERTY_OVERRIDES += ro.opa.eligible_device=true
 
+ifneq ($(TARGET_BUILD_VARIANT),user)
 # Thank you, please drive thru!
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
+endif
 
 
 ifeq ($(BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE),)
@@ -189,9 +191,11 @@ endif
 # by default, do not update the recovery with system updates
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.recovery_update=false
 
-ifneq ($(TARGET_BUILD_VARIANT),eng)
-# Enable ADB authentication
+# Enable ADB authentication for userdebug and eng builds
+ifeq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.adb.secure=1
+else
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.adb.secure=0
 endif
 
 #PLATFORM_SECURITY_PATCH := ""
