@@ -79,6 +79,14 @@ endif
 PRODUCT_COPY_FILES += \
     vendor/citrus/prebuilt/common/bin/otasigcheck.sh:install/bin/otasigcheck.sh
 
+# Changelog
+ifeq ($(CITRUS_RELEASE),true)
+PRODUCT_COPY_FILES +=  \
+    vendor/citrus/prebuilt/common/etc/Changelog.txt:system/etc/Changelog.txt
+else
+GENERATE_CHANGELOG := true
+endif
+
 # Dialer fix
 PRODUCT_COPY_FILES +=  \
     vendor/citrus/prebuilt/common/etc/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
