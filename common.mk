@@ -215,6 +215,9 @@ endif
 
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 
+# include sounds from pixel
+$(call inherit-product-if-exists, vendor/citrus/google/sounds/PixelSounds.mk)
+
 # build official builds with private keys
 ifeq ($(CITRUS_RELEASE),true)
 include vendor/citrus-priv/keys.mk
