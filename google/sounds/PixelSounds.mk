@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH := $(TOP)/vendor/citrus/google/sounds
+LOCAL_PATH := $(ANDROID_BUILD_TOP)/vendor/citrus/google/sounds
 
 PRODUCT_PROPERTY_OVERRIDES := \
     ro.config.ringtone=The_big_adventure.ogg \
