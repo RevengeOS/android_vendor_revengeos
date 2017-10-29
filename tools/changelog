@@ -1,9 +1,6 @@
 #!/bin/sh
 
 # Exports
-
-. $ANDROID_BUILD_TOP/vendor/citrus/tools/colors
-
 export Changelog=Changelog.txt
 
 if [ -f $Changelog ];
@@ -14,7 +11,7 @@ fi
 touch $Changelog
 
 # Print something to build output
-echo ${bldppl}"Listing down the new stuff..."${txtrst}
+echo "Listing down the new stuff..."
 
 for i in $(seq 5);
 do

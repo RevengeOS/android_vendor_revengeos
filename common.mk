@@ -201,9 +201,6 @@ PRODUCT_COPY_FILES += \
     vendor/citrus/prebuilt/common/lib64/libjni_latinimegoogle.so:system/lib64/libjni_latinimegoogle.so
 endif
 
-# by default, do not update the recovery with system updates
-PRODUCT_PROPERTY_OVERRIDES += persist.sys.recovery_update=false
-
 # Enable ADB authentication for userdebug and eng builds
 ifeq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.adb.secure=1
@@ -225,33 +222,28 @@ endif
 
 # Versioning System
 # Citrus-CAF first version.
-PLATFORM_VERSION_CODENAME := OREO
 CITRUS_VERSION_FLAVOUR = KeyLime
 CITRUS_VERSION_CODENAME = 4.0
-ifdef CITRUS_BUILD_EXTRA
-    CITRUS_POSTFIX := -$(CITRUS_BUILD_EXTRA)
-endif
 ifndef CITRUS_BUILD_TYPE
 ifeq ($(CITRUS_RELEASE),true)
     CITRUS_BUILD_TYPE := OFFICIAL
     CITRUS_POSTFIX := -$(shell date +"%Y%m%d")
 else
     CITRUS_BUILD_TYPE := UNOFFICIAL
-    CITRUS_POSTFIX := -$(shell date +"%Y%m%d")
 endif
 endif
 
-ifeq ($(CITRUS_BUILD_TYPE),DM)
-    CITRUS_POSTFIX := -$(shell date +"%Y%m%d")
+ifdef CITRUS_BUILD_EXTRA
+    CITRUS_POSTFIX := -$(CITRUS_BUILD_EXTRA)
 endif
 
 ifndef CITRUS_POSTFIX
-    CITRUS_POSTFIX := -$(shell date +"%Y%m%d")
+    CITRUS_POSTFIX := -$(shell date +"%Y%m%d-%H%M")
 endif
 
 # Set all versions
-CITRUS_VERSION := CitrusCAF-$(CITRUS_VERSION_CODENAME)-$(CITRUS_VERSION_FLAVOUR)-$(PLATFORM_VERSION_CODENAME)-$(CITRUS_BUILD_TYPE)$(CITRUS_POSTFIX)
-CITRUS_MOD_VERSION := CitrusCAF-$(CITRUS_VERSION_CODENAME)-$(CITRUS_VERSION_FLAVOUR)-$(PLATFORM_VERSION_CODENAME)-$(CITRUS_BUILD)-$(CITRUS_BUILD_TYPE)$(CITRUS_POSTFIX)
+CITRUS_VERSION := CitrusCAF-$(CITRUS_VERSION_CODENAME)-$(CITRUS_VERSION_FLAVOUR)-$(CITRUS_BUILD_TYPE)$(CITRUS_POSTFIX)
+CITRUS_MOD_VERSION := CitrusCAF-$(CITRUS_VERSION_CODENAME)-$(CITRUS_VERSION_FLAVOUR)-$(CITRUS_BUILD)-$(CITRUS_BUILD_TYPE)$(CITRUS_POSTFIX)
 PRODUCT_PROPERTY_OVERRIDES += \
     BUILD_DISPLAY_ID=$(BUILD_ID) \
     citrus.ota.version=$(CITRUS_MOD_VERSION) \
@@ -269,9 +261,6 @@ LatinIME \
 LiveWallpapersPicker \
 AboutCitrus \
 Jelly
-
-#Themes
-# include vendor/citrus/config/themes_common.mk
 
 # DU Utils Library
 #PRODUCT_PACKAGES += \
