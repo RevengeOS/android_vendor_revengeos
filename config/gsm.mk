@@ -9,8 +9,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/revengeos/prebuilt/etc/selective-spn-conf.xml:system/etc/selective-spn-conf.xml
 
+# Default ringtone
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.config.ringtone=The_big_adventure.ogg
+
 # SIM Toolkit
 PRODUCT_PACKAGES += \
-    messaging \
     Stk \
     CellBroadcastReceiver
