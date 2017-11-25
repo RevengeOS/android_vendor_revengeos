@@ -186,6 +186,10 @@ PRODUCT_PACKAGES += \
     PixelTheme \
     Stock
 
+# Substratum
+PRODUCT_PACKAGES += SubstratumService
+PRODUCT_SYSTEM_SERVER_APPS += SubstratumService
+
 # World APN list
 PRODUCT_COPY_FILES += \
     vendor/citrus/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
