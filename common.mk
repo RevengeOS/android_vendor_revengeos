@@ -268,7 +268,8 @@ MusicFX \
 CitrusHeaders \
 OmniStyle \
 OmniJaws \
-Calendar
+Calendar \
+LighteningBrowser
 
 # DU Utils Library
 PRODUCT_PACKAGES += \
