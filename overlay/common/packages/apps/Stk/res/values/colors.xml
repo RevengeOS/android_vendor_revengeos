@@ -17,6 +17,7 @@
 <resources>
 
     <!-- Adaptive icon background layer color -->
+    <add-resource type="color" name="ic_launcher_sim_toolkit_background" />
     <color name="ic_launcher_sim_toolkit_background">#ffc107</color>
 
 </resources>
