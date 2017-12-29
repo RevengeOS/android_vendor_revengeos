@@ -185,10 +185,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/citrus/prebuilt/common/etc/selective-spn-conf.xml:system/etc/selective-spn-conf.xml
 
-# Overlays & Include LatinIME dictionaries
+# Overlays
 PRODUCT_PACKAGE_OVERLAYS += \
-	vendor/citrus/overlay/common \
-	vendor/citrus/overlay/dictionaries
+	vendor/citrus/overlay/common
 
 # Proprietary latinime libs needed for Keyboard swyping
 ifneq ($(filter arm64,$(TARGET_ARCH)),)
