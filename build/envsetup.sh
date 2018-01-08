@@ -102,6 +102,14 @@ function ctremote()
 
     project="${proj//\//_}"
 
+    if (echo "$project" | egrep -q 'audio|display|media') ; then
+    project=${project%_msm*}
+    fi
+
+    if (echo "$project" | egrep -q 'audio|display|media') ; then
+    project=${project%_default*}
+    fi
+
     git remote add ctr "https://github.com/Citrus-CAF/$project"
     echo "Remote 'ctr' created"
 }
@@ -120,6 +128,14 @@ function lineageremote()
     proj="$(pwd -P | sed "s#$ANDROID_BUILD_TOP/##g")"
     pfx="android_"
     project="${proj//\//_}"
+
+    if (echo "$project" | egrep -q 'audio|display|media') ; then
+    project=${project%_msm*}
+    fi
+
+    if (echo "$project" | egrep -q 'audio|display|media') ; then
+    project=${project%_default*}
+    fi
     git remote add lineage "https://github.com/LineageOS/$pfx$project"
     echo "Remote 'lineage' created"
 }
@@ -149,7 +165,7 @@ function cafremote()
         return 1
     fi
     git remote rm caf 2> /dev/null
-    PROJECT=$(pwd -P | sed -e "s#$ANDROID_BUILD_TOP\/##; s#-caf.*##; s#\/default##")
+    PROJECT=$(pwd -P | sed -e "s#$ANDROID_BUILD_TOP\/##; s#\/msm*.*##; s#\/default##")
     if (echo $PROJECT | grep -qv "^device")
     then
         PFX="platform/"
