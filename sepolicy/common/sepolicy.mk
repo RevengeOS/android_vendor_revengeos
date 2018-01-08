@@ -4,4 +4,4 @@
 #
 
 BOARD_SEPOLICY_DIRS += \
-    vendor/cardinal/sepolicy/common
+    vendor/citrus/sepolicy/common
