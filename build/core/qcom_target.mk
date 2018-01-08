@@ -66,18 +66,11 @@ $(call set-device-specific-path,AUDIO,audio,hardware/qcom/audio/$(QCOM_HARDWARE_
 $(call set-device-specific-path,DISPLAY,display,hardware/qcom/display/$(QCOM_HARDWARE_VARIANT))
 $(call set-device-specific-path,MEDIA,media,hardware/qcom/media/$(QCOM_HARDWARE_VARIANT))
 
-$(call set-device-specific-path,GPS,gps,hardware/qcom/gps)
-$(call set-device-specific-path,SENSORS,sensors,hardware/qcom/sensors)
-$(call set-device-specific-path,LOC_API,loc-api,vendor/qcom/opensource/location)
-
 else
 
 $(call project-set-path,qcom-audio,hardware/qcom/audio/default)
 $(call project-set-path,qcom-display,hardware/qcom/display/default)
 $(call project-set-path,qcom-media,hardware/qcom/media/default)
 
-$(call project-set-path,qcom-gps,hardware/qcom/gps)
-$(call project-set-path,qcom-sensors,hardware/qcom/sensors)
-$(call project-set-path,qcom-loc-api,vendor/qcom/opensource/location)
 endif # TARGET_BOARD_PLATFORM = msm8998
 endif # BOARD_USES_QCOM_HARDWARE
