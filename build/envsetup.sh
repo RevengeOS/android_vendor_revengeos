@@ -59,32 +59,32 @@ function ctr_device_combos()
     done < "${list_file}"
 }
 
-function citrus_rename_function()
+function ctr_rename_function()
 {
     eval "original_citrus_$(declare -f ${1})"
 }
 
-function _citrus_build_hmm() #hidden
+function _ctr_build_hmm() #hidden
 {
     printf "%-8s %s" "${1}:" "${2}"
 }
 
-function citrus_append_hmm()
+function ctr_append_hmm()
 {
-    HMM_DESCRIPTIVE=("${HMM_DESCRIPTIVE[@]}" "$(_citrus_build_hmm "$1" "$2")")
+    HMM_DESCRIPTIVE=("${HMM_DESCRIPTIVE[@]}" "$(_ctr_build_hmm "$1" "$2")")
 }
 
-function citrus_add_hmm_entry()
+function ctr_add_hmm_entry()
 {
     for c in ${!HMM_DESCRIPTIVE[*]}
     do
         if [[ "${1}" == $(echo "${HMM_DESCRIPTIVE[$c]}" | cut -f1 -d":") ]]
         then
-            HMM_DESCRIPTIVE[${c}]="$(_citrus_build_hmm "$1" "$2")"
+            HMM_DESCRIPTIVE[${c}]="$(_ctr_build_hmm "$1" "$2")"
             return
         fi
     done
-    citrus_append_hmm "$1" "$2"
+    ctr_append_hmm "$1" "$2"
 }
 
 function ctremote()
@@ -102,7 +102,7 @@ function ctremote()
 
     project="${proj//\//_}"
 
-    git remote add ctr "git@github.com:Citrus-CAF/$project"
+    git remote add ctr "https://github.com/Citrus-CAF/$project"
     echo "Remote 'ctr' created"
 }
 
@@ -120,7 +120,7 @@ function lineageremote()
     proj="$(pwd -P | sed "s#$ANDROID_BUILD_TOP/##g")"
     pfx="android_"
     project="${proj//\//_}"
-    git remote add lineage "git@github.com:LineageOS/$pfx$project"
+    git remote add lineage "https://github.com/LineageOS/$pfx$project"
     echo "Remote 'lineage' created"
 }
 
@@ -154,15 +154,14 @@ function cafremote()
     then
         PFX="platform/"
     fi
-    git remote add caf git://codeaurora.org/$PFX$PROJECT
+    git remote add caf https://codeaurora.org/quic/la/$PFX$PROJECT
     echo "Remote 'caf' created"
 }
 
 function ctr_push()
 {
-    local branch ssh_name path_opt proj
-    branch="n-mr2"
-    ssh_name="citrus"
+    local branch path_opt proj
+    branch="o8x"
     path_opt=
 
     if [[ "$1" ]]
@@ -180,11 +179,11 @@ function ctr_push()
         proj="$proj"
     fi
 
-    git $path_opt push "ssh://${ssh_name}/Citrus-CAF/$proj" "HEAD:refs/for/$branch"
+    git $path_opt push "https://github.com/Citrus-CAF/$proj" "HEAD:$branch"
 }
 
 
-citrus_rename_function hmm
+ctr_rename_function hmm
 function hmm() #hidden
 {
     local i T
