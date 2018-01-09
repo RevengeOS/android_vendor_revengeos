@@ -1,0 +1,2 @@
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.citrus.revision=LA.UM.6.4.r1-05700-8x98.0
