@@ -61,16 +61,8 @@ ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
     endif
     endif
 
-ifneq ($(TARGET_BOARD_PLATFORM), msm8998)
 $(call set-device-specific-path,AUDIO,audio,hardware/qcom/audio/$(QCOM_HARDWARE_VARIANT))
 $(call set-device-specific-path,DISPLAY,display,hardware/qcom/display/$(QCOM_HARDWARE_VARIANT))
 $(call set-device-specific-path,MEDIA,media,hardware/qcom/media/$(QCOM_HARDWARE_VARIANT))
 
-else
-
-$(call project-set-path,qcom-audio,hardware/qcom/audio/default)
-$(call project-set-path,qcom-display,hardware/qcom/display/default)
-$(call project-set-path,qcom-media,hardware/qcom/media/default)
-
-endif # TARGET_BOARD_PLATFORM = msm8998
 endif # BOARD_USES_QCOM_HARDWARE
