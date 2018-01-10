@@ -265,10 +265,10 @@ AboutCitrus \
 Jelly
 
 # DU Utils Library
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     org.dirtyunicorns.utils
 
-#PRODUCT_BOOT_JARS += \
+PRODUCT_BOOT_JARS += \
     org.dirtyunicorns.utils
 
 # Custom off-mode charger
