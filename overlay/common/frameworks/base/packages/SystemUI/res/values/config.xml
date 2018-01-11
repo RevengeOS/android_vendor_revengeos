@@ -43,4 +43,7 @@
     <bool name="kg_hide_emgcy_btn_when_oos">true</bool>
     <bool name="config_showEmergencyButton">false</bool>
 
+    <!-- config for showing AM/PM on lock screen in 12hour format -->
+    <bool name="config_showAmpm">false</bool>
+
 </resources>
