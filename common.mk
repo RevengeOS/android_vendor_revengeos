@@ -261,7 +261,10 @@ Launcher3 \
 LatinIME \
 LiveWallpapersPicker \
 AboutCitrus \
-Jelly
+Jelly \
+SnapdragonGallery \
+SnapdragonMusic \
+MusicFX
 
 # DU Utils Library
 PRODUCT_PACKAGES += \
