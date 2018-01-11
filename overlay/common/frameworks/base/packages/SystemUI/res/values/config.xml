@@ -38,4 +38,9 @@
          does not work well, particularly with noisy touchscreens. Note that disabling it may
          increase the rate of unintentional unlocks. -->
     <bool name="config_lockscreenAntiFalsingClassifierEnabled">false</bool>
+
+    <!-- Keyguard emergency button -->
+    <bool name="kg_hide_emgcy_btn_when_oos">true</bool>
+    <bool name="config_showEmergencyButton">false</bool>
+
 </resources>
