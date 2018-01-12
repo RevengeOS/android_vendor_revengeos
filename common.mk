@@ -264,7 +264,10 @@ AboutCitrus \
 Jelly \
 SnapdragonGallery \
 SnapdragonMusic \
-MusicFX
+MusicFX \
+CitrusHeaders \
+OmniStyle \
+OmniJaws
 
 # DU Utils Library
 PRODUCT_PACKAGES += \
