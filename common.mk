@@ -267,7 +267,8 @@ SnapdragonMusic \
 MusicFX \
 CitrusHeaders \
 OmniStyle \
-OmniJaws
+OmniJaws \
+Calendar
 
 # DU Utils Library
 PRODUCT_PACKAGES += \
