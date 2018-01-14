@@ -64,5 +64,5 @@ ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
 $(call set-device-specific-path,AUDIO,audio,hardware/qcom/audio/$(QCOM_HARDWARE_VARIANT))
 $(call set-device-specific-path,DISPLAY,display,hardware/qcom/display/$(QCOM_HARDWARE_VARIANT))
 $(call set-device-specific-path,MEDIA,media,hardware/qcom/media/$(QCOM_HARDWARE_VARIANT))
-
+$(call set-device-specific-path,GPS,gps,hardware/qcom/gps)
 endif # BOARD_USES_QCOM_HARDWARE
