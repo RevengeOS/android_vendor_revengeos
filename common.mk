@@ -173,6 +173,7 @@ PRODUCT_BOOT_JARS += tcmiface
 
 # Themes
 PRODUCT_PACKAGES += \
+    Margarita \
     PixelTheme \
     Stock
 
