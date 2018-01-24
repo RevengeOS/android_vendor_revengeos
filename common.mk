@@ -31,6 +31,10 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
     net.tethering.noprovisioning=true
 
+# Media
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.recorder.show_manufacturer_and_model=true
+
 ifeq ($(BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE),)
   PRODUCT_DEFAULT_PROPERTY_OVERRIDES  += \
     ro.device.cache_dir=/data/cache
