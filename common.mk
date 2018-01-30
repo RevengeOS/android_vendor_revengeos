@@ -146,16 +146,6 @@ PRODUCT_PACKAGES += \
     libbthost_if \
     WallpaperPicker
 
-# Stagefright FFMPEG plugin
-PRODUCT_PACKAGES += \
-    libffmpeg_extractor \
-    libffmpeg_omx \
-    media_codecs_ffmpeg.xml
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    media.sf.omx-plugin=libffmpeg_omx.so \
-    media.sf.extractor-plugin=libffmpeg_extractor.so
-
 # Telephony packages
 PRODUCT_PACKAGES += \
     messaging \
@@ -170,10 +160,6 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
     librsjni
-
-# TCP Connection Management
-PRODUCT_PACKAGES += tcmiface
-PRODUCT_BOOT_JARS += tcmiface
 
 # Themes
 PRODUCT_PACKAGES += \
@@ -203,15 +189,6 @@ PRODUCT_COPY_FILES += \
     vendor/citrus/prebuilt/common/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so \
     vendor/citrus/prebuilt/common/lib64/libjni_latinimegoogle.so:system/lib64/libjni_latinimegoogle.so
 endif
-
-# Enable ADB authentication for userdebug and eng builds
-ifeq ($(TARGET_BUILD_VARIANT),user)
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.adb.secure=1
-else
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.adb.secure=0
-endif
-
-#PLATFORM_SECURITY_PATCH := ""
 
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 
@@ -261,18 +238,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Citrus Bloats
 PRODUCT_PACKAGES += \
 Camera2 \
-Gallery2 \
 Launcher3 \
 LatinIME \
 LiveWallpapersPicker \
 AboutCitrus \
-Jelly \
 SnapdragonGallery \
 SnapdragonMusic \
 MusicFX \
 CitrusHeaders \
-OmniStyle \
-OmniJaws \
 Calendar \
 LighteningBrowser
 
@@ -292,6 +265,6 @@ PRODUCT_PACKAGES += \
     libhealthd.custom
 endif
 
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
    OmniStyle \
    OmniJaws
