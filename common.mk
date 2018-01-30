@@ -156,6 +156,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     telephony-ext
 
+#RCS
+PRODUCT_PACKAGES += \
+    rcs_service_aidl \
+    rcs_service_aidl.xml \
+    rcs_service_aidl_static \
+    rcs_service_api \
+    rcs_service_api.xml
+
 # Include librsjni explicitly to workaround GMS issue
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
