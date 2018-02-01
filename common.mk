@@ -246,7 +246,6 @@ LatinIME \
 LiveWallpapersPicker \
 AboutCitrus \
 SnapdragonGallery \
-SnapdragonMusic \
 MusicFX \
 CitrusHeaders \
 Calendar \
