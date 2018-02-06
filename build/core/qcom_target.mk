@@ -65,4 +65,5 @@ $(call set-device-specific-path,AUDIO,audio,hardware/qcom/audio/$(QCOM_HARDWARE_
 $(call set-device-specific-path,DISPLAY,display,hardware/qcom/display/$(QCOM_HARDWARE_VARIANT))
 $(call set-device-specific-path,MEDIA,media,hardware/qcom/media/$(QCOM_HARDWARE_VARIANT))
 $(call set-device-specific-path,GPS,gps,hardware/qcom/gps)
+$(call set-device-specific-path,POWER,power,hardware/qcom/power)
 endif # BOARD_USES_QCOM_HARDWARE
