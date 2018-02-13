@@ -266,15 +266,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     org.dirtyunicorns.utils
 
-# Custom off-mode charger
-ifneq ($(WITH_CUSTOM_CHARGER),false)
-PRODUCT_PACKAGES += \
-    charger_res_images \
-    custom_charger_res_images \
-    font_log.png \
-    libhealthd.custom
-endif
-
 PRODUCT_PACKAGES += \
    OmniStyle \
    OmniJaws
