@@ -135,7 +135,6 @@ PRODUCT_PACKAGES += \
     tune2fs \
     bash \
     powertop \
-    mount.exfat \
     fsck.exfat \
     mkfs.exfat \
     mkfs.f2fs \
