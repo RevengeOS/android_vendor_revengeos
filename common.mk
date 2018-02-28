@@ -26,6 +26,11 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_GENERIC_OVERRIDES += persist.sys.dun.override=0
 endif
 
+# enable ADB authentication if not on eng build
+ifneq ($(TARGET_BUILD_VARIANT),eng)
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.adb.secure=1
+endif
+
 # Tethering - allow without requiring a provisioning app
 # (for devices that check this)
 PRODUCT_GENERIC_OVERRIDES += \
