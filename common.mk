@@ -28,7 +28,7 @@ endif
 
 # enable ADB authentication if not on eng build
 ifneq ($(TARGET_BUILD_VARIANT),eng)
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.adb.secure=1
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.adb.secure=1
 endif
 
 # Tethering - allow without requiring a provisioning app
