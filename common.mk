@@ -13,26 +13,26 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 
 # RecueParty? No thanks.
-PRODUCT_PROPERTY_OVERRIDES += persist.sys.enable_rescue=false
+PRODUCT_GENERIC_OVERRIDES += persist.sys.enable_rescue=false
 
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_GENERIC_OVERRIDES += \
     ro.build.selinux=1
 
 # Mark as eligible for Google Assistant
-PRODUCT_PROPERTY_OVERRIDES += ro.opa.eligible_device=true
+PRODUCT_GENERIC_OVERRIDES += ro.opa.eligible_device=true
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
 # Thank you, please drive thru!
-PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
+PRODUCT_GENERIC_OVERRIDES += persist.sys.dun.override=0
 endif
 
 # Tethering - allow without requiring a provisioning app
 # (for devices that check this)
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_GENERIC_OVERRIDES += \
     net.tethering.noprovisioning=true
 
 # Media
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_GENERIC_OVERRIDES += \
     media.recorder.show_manufacturer_and_model=true
 
 ifeq ($(BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE),)
