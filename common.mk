@@ -1,6 +1,6 @@
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     keyguard.no_require_sim=true \
     ro.com.google.clientidbase=android-google \
     ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
@@ -13,17 +13,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 
 # RecueParty? No thanks.
-PRODUCT_GENERIC_OVERRIDES += persist.sys.enable_rescue=false
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.sys.enable_rescue=false
 
-PRODUCT_GENERIC_OVERRIDES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.build.selinux=1
 
 # Mark as eligible for Google Assistant
-PRODUCT_GENERIC_OVERRIDES += ro.opa.eligible_device=true
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.opa.eligible_device=true
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
 # Thank you, please drive thru!
-PRODUCT_GENERIC_OVERRIDES += persist.sys.dun.override=0
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.sys.dun.override=0
 endif
 
 # enable ADB authentication if not on eng build
@@ -33,11 +33,11 @@ endif
 
 # Tethering - allow without requiring a provisioning app
 # (for devices that check this)
-PRODUCT_GENERIC_OVERRIDES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     net.tethering.noprovisioning=true
 
 # Media
-PRODUCT_GENERIC_OVERRIDES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     media.recorder.show_manufacturer_and_model=true
 
 ifeq ($(BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE),)
@@ -116,7 +116,7 @@ PRODUCT_COPY_FILES += \
 # Copy all Citrus-specific init rc files
 $(foreach f,$(wildcard vendor/citrus/prebuilt/common/etc/init/*.rc),\
 	$(eval PRODUCT_COPY_FILES += $(f):system/etc/init/$(notdir $f)))
- 
+
 # Bring in camera effects
 PRODUCT_COPY_FILES +=  \
     vendor/citrus/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
@@ -242,7 +242,7 @@ endif
 # Set all versions
 CITRUS_VERSION := CitrusCAF-$(CITRUS_VERSION_CODENAME)-$(CITRUS_VERSION_FLAVOUR)-$(CITRUS_BUILD_TYPE)$(CITRUS_POSTFIX)
 CITRUS_MOD_VERSION := CitrusCAF-$(CITRUS_VERSION_CODENAME)-$(CITRUS_VERSION_FLAVOUR)-$(CITRUS_BUILD)-$(CITRUS_BUILD_TYPE)$(CITRUS_POSTFIX)
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     BUILD_DISPLAY_ID=$(BUILD_ID) \
     citrus.ota.version=$(CITRUS_MOD_VERSION) \
     ro.citrus.version=$(CITRUS_VERSION_CODENAME)-$(CITRUS_VERSION_FLAVOUR) \
