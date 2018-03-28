@@ -1,0 +1,2 @@
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+	ro.caf.revision=LA.BR.1.3.7_rb1.9
