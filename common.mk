@@ -248,24 +248,26 @@ CITRUS_VERSION := CitrusCAF-$(CITRUS_VERSION_CODENAME)-$(CITRUS_VERSION_FLAVOUR)
 CITRUS_MOD_VERSION := CitrusCAF-$(CITRUS_VERSION_CODENAME)-$(CITRUS_VERSION_FLAVOUR)-$(CITRUS_BUILD)-$(CITRUS_BUILD_TYPE)$(CITRUS_POSTFIX)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     BUILD_DISPLAY_ID=$(BUILD_ID) \
-    citrus.ota.version=$(CITRUS_MOD_VERSION) \
-    ro.citrus.version=$(CITRUS_VERSION_CODENAME)-$(CITRUS_VERSION_FLAVOUR) \
-    ro.modversion=$(CITRUS_MOD_VERSION) \
     ro.citrus.buildtype=$(CITRUS_BUILD_TYPE) \
-    ro.citrus.flavour=$(CITRUS_VERSION_FLAVOUR)
+    ro.citrus.flavour=$(CITRUS_VERSION_FLAVOUR) \
+    ro.citrus.version=$(CITRUS_VERSION_CODENAME)-$(CITRUS_VERSION_FLAVOUR)
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    citrus.ota.version=$(CITRUS_MOD_VERSION) \
+    ro.modversion=$(CITRUS_MOD_VERSION)
 
 # Citrus Bloats
 PRODUCT_PACKAGES += \
-Camera2 \
-Launcher3 \
-LatinIME \
-LiveWallpapersPicker \
-AboutCitrus \
-SnapdragonGallery \
-MusicFX \
-CitrusHeaders \
-Calendar \
-LighteningBrowser
+    Camera2 \
+    Launcher3 \
+    LatinIME \
+    LiveWallpapersPicker \
+    AboutCitrus \
+    SnapdragonGallery \
+    MusicFX \
+    CitrusHeaders \
+    Calendar \
+    LighteningBrowser
 
 # DU Utils Library
 PRODUCT_PACKAGES += \
