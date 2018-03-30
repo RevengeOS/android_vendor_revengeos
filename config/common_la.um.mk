@@ -1,2 +1,2 @@
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-	ro.caf.revision=LA.UM.6.4.r1-06900-8x98.0
+	ro.caf.revision=LA.UM.6.4.r1-07600-8x98.0
