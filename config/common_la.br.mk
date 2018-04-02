@@ -1,2 +1,7 @@
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-	ro.caf.revision=LA.BR.1.3.7_rb1.9
+# Revision
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.caf.revision=LA.BR.1.3.7_rb1.11
+
+# Security patch
+export BUILD_ID=OPM1.171019.019
+PLATFORM_SECURITY_PATCH := 2018-02-05
