@@ -70,5 +70,7 @@ $(call set-device-specific-path,DISPLAY,display,hardware/qcom/display/$(QCOM_HAR
 $(call set-device-specific-path,MEDIA,media,hardware/qcom/media/$(QCOM_HARDWARE_VARIANT))
 $(call set-device-specific-path,GPS,gps,hardware/qcom/gps)
 $(call set-device-specific-path,POWER,power,hardware/qcom/power)
+$(call set-device-specific-path,THERMAL,thermal,hardware/qcom/thermal)
+$(call set-device-specific-path,VR,vr,hardware/qcom/vr)
 endif # BOARD_USES_QCOM_HARDWARE
 
