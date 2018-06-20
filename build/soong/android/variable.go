@@ -75,6 +75,14 @@ type Product_variables struct {
 		Cflags []string
 		Srcs []string
 	}
+	Supports_hw_fde struct {
+		Cflags []string
+		Header_libs []string
+		Shared_libs []string
+	}
+	Supports_hw_fde_perf struct {
+		Cflags []string
+	}
 }
 
 type ProductVariables struct {
@@ -102,4 +110,6 @@ type ProductVariables struct {
         Uses_qcom_um_4_14_family  *bool `json:",omitempty"`
 	Target_use_sdclang							*bool `json:",omitempty"`
  	Needs_camera_boottime_timestamp  *bool `json:",omitempty"`
+	Supports_hw_fde  *bool `json:",omitempty"`
+	Supports_hw_fde_perf  *bool `json:",omitempty"`
 }
