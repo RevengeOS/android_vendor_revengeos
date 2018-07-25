@@ -142,18 +142,9 @@ PRODUCT_PACKAGES += \
     libemoji \
     libsepol \
     e2fsck \
-    mke2fs \
-    tune2fs \
     bash \
     powertop \
-    fsck.exfat \
-    mkfs.exfat \
-    mkfs.f2fs \
-    fsck.f2fs \
     fibmap.f2fs \
-    mkfs.ntfs \
-    fsck.ntfs \
-    mount.ntfs \
     gdbserver \
     micro_bench \
     oprofiled \
@@ -162,6 +153,15 @@ PRODUCT_PACKAGES += \
     Terminal \
     libbthost_if \
     WallpaperPicker
+
+# Filesystems tools
+PRODUCT_PACKAGES += \
+    fsck.exfat \
+    fsck.ntfs \
+    mke2fs \
+    mkfs.exfat \
+    mkfs.ntfs \
+    mount.ntfs
 
 # Telephony packages
 PRODUCT_PACKAGES += \
