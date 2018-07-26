@@ -43,6 +43,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/revengeos/prebuilt/common/bin/system-mount.sh:install/bin/system-mount.sh
 
+# Google permissions
+PRODUCT_COPY_FILES += \
+    vendor/revengeos/prebuilt/common/etc/permissions/privapp-permissions-elgoog.xml:system/etc/permissions/privapp-permissions-elgoog.xml
+
 # Do not include art debug targets
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 
