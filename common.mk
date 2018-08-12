@@ -197,6 +197,7 @@ PRODUCT_COPY_FILES += \
     vendor/citrus/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 # Overlays
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/lineage/overlay/common
 DEVICE_PACKAGE_OVERLAYS += vendor/citrus/overlay/common
 
 # Proprietary latinime libs needed for Keyboard swyping
