@@ -33,7 +33,12 @@ $(call set-device-specific-path,THERMAL,thermal,hardware/qcom/thermal)
 $(call set-device-specific-path,VR,vr,hardware/qcom/vr)
 $(call set-device-specific-path,IPACFG_MGR,ipacfg-mgr,hardware/qcom/data/ipacfg-mgr)
 
+ifeq ($(BOARD_USES_AOSP_WLAN_HAL),true)
+$(call wlan-set-path-variant,wlan)
+else
 $(call wlan-set-path-variant,wlan-caf)
+endif
+
 $(call bt-vendor-set-path-variant,bt-caf)
 
 else
