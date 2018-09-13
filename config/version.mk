@@ -1,22 +1,19 @@
-#Version of the ROM
-CARBON_CODENAME := TBA
-CARBON_REVISION := CR-7.0
+# Version of the ROM
+REVENGEOS_CODENAME := Pizza
+REVENGEOS_REVISION := 2.0
 
-ifndef CARBON_BUILDTYPE
-  CARBON_BUILDTYPE := UNOFFICIAL
+ifndef REVENGEOS_BUILDTYPE
+  REVENGEOS_BUILDTYPE := UNOFFICIAL
 endif
 
 TARGET_PRODUCT_SHORT := $(TARGET_PRODUCT)
-TARGET_PRODUCT_SHORT := $(subst carbon_,,$(TARGET_PRODUCT_SHORT))
+TARGET_PRODUCT_SHORT := $(subst revengeos_,,$(TARGET_PRODUCT_SHORT))
 
-CARBON_VERSION := $(CARBON_REVISION)-$(CARBON_CODENAME)-$(CARBON_BUILDTYPE)-$(TARGET_PRODUCT_SHORT)-$(shell date -u +%Y%m%d-%H%M)
+REVENGEOS_VERSION := $(REVENGEOS_REVISION)-$(REVENGEOS_CODENAME)-$(REVENGEOS_BUILDTYPE)-$(TARGET_PRODUCT_SHORT)-$(shell date -u +%Y%m%d-%H%M)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_DISPLAY_ID="$(BUILD_ID)-$(shell whoami)@$(shell hostname)"
 
 # Apply it to build.prop
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.modversion=CarbonROM-$(CARBON_VERSION) \
-    ro.carbon.version=$(CARBON_VERSION) \
-    ro.romstats.url=https://stats.carbonrom.org \
-    ro.romstats.name=CarbonROM \
-    ro.romstats.version=$(CARBON_VERSION)
+    ro.modversion=RevengeOS-$(REVENGEOS_VERSION) \
+    ro.revengeos.version=$(REVENGEOS_VERSION)

@@ -1,6 +1,5 @@
 # Copyright (C) 2015 The CyanogenMod Project
 #           (C) 2017-2018 The LineageOS Project
-#           (C) 2018 CarbonROM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,7 +18,7 @@
 $(call project-set-path-variant,ril,TARGET_RIL_VARIANT,hardware/ril)
 
 # Rules for MTK targets
-include $(TOPDIR)vendor/carbon/build/core/mtk_target.mk
+include $(TOPDIR)vendor/revengeos/build/core/mtk_target.mk
 
 # Rules for QCOM targets
-include $(TOPDIR)vendor/carbon/build/core/qcom_target.mk
+include $(TOPDIR)vendor/revengeos/build/core/qcom_target.mk

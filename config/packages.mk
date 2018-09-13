@@ -14,7 +14,7 @@ PRODUCT_BOOT_JARS += \
 
 # CellBroadcastReceiver
 PRODUCT_PACKAGES += \
-CellBroadcastReceiver
+    CellBroadcastReceiver
 
 # Exchange support
 PRODUCT_PACKAGES += \
@@ -37,15 +37,6 @@ PRODUCT_PACKAGES += \
 # Fonts
 PRODUCT_PACKAGES += \
     CR-Fonts
-
-# Custom off-mode charger
-ifneq ($(WITH_CM_CHARGER),false)
-PRODUCT_PACKAGES += \
-    charger_res_images \
-    cm_charger_res_images \
-    font_log.png \
-    libhealthd.cm
-endif
 
 # NTFS-3G support
 PRODUCT_PACKAGES += \
@@ -75,6 +66,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Permissions
 PRODUCT_PACKAGES += \
-    privapp-permissions-carbon.xml
+    privapp-permissions-revengeos.xml
 
 -include vendor/qcom/perf/packages.mk

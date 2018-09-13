@@ -15,7 +15,7 @@ QUIET=1
 BASE=`pwd`
 TMPDIR=/tmp/crusher-$$
 
-. $ANDROID_BUILD_TOP/vendor/carbon/tools/colors
+. $ANDROID_BUILD_TOP/vendor/revengeos/tools/colors
 
 if [ "$APKCERTS" = "" ];
 then

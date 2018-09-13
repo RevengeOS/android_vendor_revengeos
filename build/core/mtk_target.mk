@@ -1,2 +1,2 @@
 # Bring in Mediatek helper macros
-include vendor/carbon/build/core/mtk_utils.mk
+include vendor/revengeos/build/core/mtk_utils.mk

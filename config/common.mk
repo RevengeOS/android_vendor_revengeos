@@ -1,5 +1,5 @@
-PRODUCT_BRAND ?= CarbonROM
-CARBON_BUILD := true
+PRODUCT_BRAND ?= RevengeOS
+REVENGEOS_BUILD := true
 
 ifneq ($(TARGET_SCREEN_WIDTH) $(TARGET_SCREEN_HEIGHT),$(space))
 # determine the smaller dimension
@@ -11,7 +11,7 @@ TARGET_BOOTANIMATION_SIZE := $(shell \
   fi )
 
 # get a sorted list of the sizes
-bootanimation_sizes := $(subst .zip,, $(shell ls vendor/carbon/prebuilt/bootanimation))
+bootanimation_sizes := $(subst .zip,, $(shell ls vendor/revengeos/prebuilt/bootanimation))
 bootanimation_sizes := $(shell echo -e $(subst $(space),'\n',$(bootanimation_sizes)) | sort -rn)
 
 # find the appropriate size and set
@@ -28,7 +28,7 @@ endef
 $(foreach size,$(bootanimation_sizes), $(call check_and_set_bootanimation,$(size)))
 
 PRODUCT_COPY_FILES += \
-    vendor/carbon/prebuilt/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip:system/media/bootanimation.zip
+    vendor/revengeos/prebuilt/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip:system/media/bootanimation.zip
 endif
 
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
@@ -56,27 +56,27 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/carbon/prebuilt/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/carbon/prebuilt/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/carbon/prebuilt/bin/50-hosts.sh:system/addon.d/50-hosts.sh \
-    vendor/carbon/prebuilt/bin/blacklist:system/addon.d/blacklist
+    vendor/revengeos/prebuilt/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/revengeos/prebuilt/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/revengeos/prebuilt/bin/50-hosts.sh:system/addon.d/50-hosts.sh \
+    vendor/revengeos/prebuilt/bin/blacklist:system/addon.d/blacklist
 
 ifeq ($(AB_OTA_UPDATER),true)
 PRODUCT_COPY_FILES += \
-    vendor/carbon/prebuilt/bin/backuptool_ab.sh:system/bin/backuptool_ab.sh \
-    vendor/carbon/prebuilt/bin/backuptool_ab.functions:system/bin/backuptool_ab.functions \
-    vendor/carbon/prebuilt/bin/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
+    vendor/revengeos/prebuilt/bin/backuptool_ab.sh:system/bin/backuptool_ab.sh \
+    vendor/revengeos/prebuilt/bin/backuptool_ab.functions:system/bin/backuptool_ab.functions \
+    vendor/revengeos/prebuilt/bin/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
 endif
 
 # Backup Services whitelist
 PRODUCT_COPY_FILES += \
-    vendor/carbon/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
+    vendor/revengeos/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
 
 # init.d support
 PRODUCT_COPY_FILES += \
-    vendor/carbon/prebuilt/etc/init.d/00banner:system/etc/init.d/00banner \
-    vendor/carbon/prebuilt/bin/sysinit:system/bin/sysinit \
-    vendor/carbon/prebuilt/etc/init.carbon.rc:root/init.carbon.rc
+    vendor/revengeos/prebuilt/etc/init.d/00banner:system/etc/init.d/00banner \
+    vendor/revengeos/prebuilt/bin/sysinit:system/bin/sysinit \
+    vendor/revengeos/prebuilt/etc/init.revengeos.rc:root/init.revengeos.rc
 
 # Enable SIP and VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -84,21 +84,21 @@ PRODUCT_COPY_FILES += \
 
 # Charging sounds
 PRODUCT_COPY_FILES += \
-    vendor/carbon/sounds/BatteryPlugged.ogg:system/media/audio/ui/BatteryPlugged.ogg \
-    vendor/carbon/sounds/BatteryPlugged_48k.ogg:system/media/audio/ui/BatteryPlugged_48k.ogg
+    vendor/revengeos/sounds/BatteryPlugged.ogg:system/media/audio/ui/BatteryPlugged.ogg \
+    vendor/revengeos/sounds/BatteryPlugged_48k.ogg:system/media/audio/ui/BatteryPlugged_48k.ogg
 
 # Additional packages
--include vendor/carbon/config/packages.mk
+-include vendor/revengeos/config/packages.mk
 
 # Versioning
--include vendor/carbon/config/version.mk
+-include vendor/revengeos/config/version.mk
 
 # SELinux Policy
--include vendor/carbon/sepolicy/sepolicy.mk
+-include vendor/revengeos/sepolicy/sepolicy.mk
 
 # Add our overlays
-DEVICE_PACKAGE_OVERLAYS += vendor/carbon/overlay/common
+DEVICE_PACKAGE_OVERLAYS += vendor/revengeos/overlay/common
 
 # Squisher Location
-SQUISHER_SCRIPT := vendor/carbon/tools/squisher
+SQUISHER_SCRIPT := vendor/revengeos/tools/squisher
 
