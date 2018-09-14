@@ -34,10 +34,6 @@ PRODUCT_PACKAGES += \
     turbo.xml \
     privapp-permissions-turbo.xml
 
-# Fonts
-PRODUCT_PACKAGES += \
-    CR-Fonts
-
 # NTFS-3G support
 PRODUCT_PACKAGES += \
     fsck.ntfs \
