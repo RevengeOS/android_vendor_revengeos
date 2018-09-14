@@ -94,10 +94,6 @@ PRODUCT_COPY_FILES += \
     vendor/citrus/prebuilt/common/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip:system/media/bootanimation.zip
 endif
 
-# Signature compatibility validation
-PRODUCT_COPY_FILES += \
-    vendor/citrus/prebuilt/common/bin/otasigcheck.sh:install/bin/otasigcheck.sh
-
 # Clean up packages cache to avoid wrong strings and resources
 PRODUCT_COPY_FILES += \
     vendor/citrus/prebuilt/common/bin/clean_cache.sh:system/bin/clean_cache.sh
