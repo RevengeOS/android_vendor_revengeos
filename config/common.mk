@@ -72,3 +72,8 @@ DEVICE_PACKAGE_OVERLAYS += vendor/revengeos/overlay/common
 # Squisher Location
 SQUISHER_SCRIPT := vendor/revengeos/tools/squisher
 
+# GApps
+include vendor/gapps/config.mk
+
+# RevengeUI
+include vendor/revengeui/config.mk
