@@ -22,17 +22,7 @@ PRODUCT_PACKAGES += \
 
 # Additional apps
 PRODUCT_PACKAGES += \
-    Launcher3 \
-    Quarks \
-    OmniStyle \
-    VanillaMusic \
-    CarbonDelta
-
-# Turbo
-PRODUCT_PACKAGES += \
-    Turbo \
-    turbo.xml \
-    privapp-permissions-turbo.xml
+    Music
 
 # NTFS-3G support
 PRODUCT_PACKAGES += \
