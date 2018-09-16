@@ -15,5 +15,4 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_DISPLAY_ID="$(BUILD_ID)-$(shell whoami)@$(
 
 # Apply it to build.prop
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.modversion=RevengeOS-$(REVENGEOS_VERSION) \
-    ro.revengeos.version=$(REVENGEOS_VERSION)
+    ro.revengeos.version=RevengeOS-$(REVENGEOS_VERSION)
