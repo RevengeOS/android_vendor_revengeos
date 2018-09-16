@@ -15,5 +15,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 
 # SIM Toolkit
 PRODUCT_PACKAGES += \
+    PrebuiltBugle \
     Stk \
     CellBroadcastReceiver

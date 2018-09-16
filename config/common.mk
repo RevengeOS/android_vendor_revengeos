@@ -59,8 +59,8 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 
 # Charging sounds
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/media/audio/BatteryPlugged.ogg:system/media/audio/ui/BatteryPlugged.ogg \
-    vendor/aosp/prebuilt/common/media/audio/BatteryPlugged_48k.ogg:system/media/audio/ui/BatteryPlugged_48k.ogg
+    vendor/revengeos/prebuilt/media/audio/BatteryPlugged.ogg:system/media/audio/ui/BatteryPlugged.ogg \
+    vendor/revengeos/prebuilt/media/audio/BatteryPlugged_48k.ogg:system/media/audio/ui/BatteryPlugged_48k.ogg
 
 # Additional packages
 -include vendor/revengeos/config/packages.mk
