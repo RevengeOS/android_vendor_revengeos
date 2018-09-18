@@ -46,6 +46,10 @@ PRODUCT_COPY_FILES += \
     vendor/revengeos/prebuilt/bin/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
 endif
 
+# Clean cache
+PRODUCT_COPY_FILES += \
+    vendor/revengeos/prebuilt/bin/clean_cache.sh:system/bin/clean_cache.sh
+
 # Backup Services whitelist
 PRODUCT_COPY_FILES += \
     vendor/revengeos/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
