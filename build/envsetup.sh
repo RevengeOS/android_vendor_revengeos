@@ -557,6 +557,12 @@ function makerecipe() {
 }
 
 function mka() {
+
+    call_hook ${FUNCNAME[0]} $@
+    if [ $? -ne 0 ]; then
+        return 1
+    fi
+
     m -j "$@"
 }
 
