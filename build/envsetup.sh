@@ -563,6 +563,8 @@ function mka() {
         return 1
     fi
 
+    generate_vendor_hidl_makefiles
+
     m -j "$@"
 }
 
