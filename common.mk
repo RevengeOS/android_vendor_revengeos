@@ -272,7 +272,7 @@ PRODUCT_PACKAGES += \
     MusicFX \
     CitrusHeaders \
     Calendar \
-    LighteningBrowser
+    FirefoxRocket
 
 # DU Utils Library
 #PRODUCT_PACKAGES += \
