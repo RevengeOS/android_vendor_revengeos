@@ -15,6 +15,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 # RecueParty? No thanks.
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.sys.enable_rescue=false
 
+# Show SELinux status on About Settings
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.build.selinux=1
 
@@ -189,8 +190,8 @@ PRODUCT_PACKAGES += \
     Stock
 
 # Substratum
-PRODUCT_PACKAGES += SubstratumService
-PRODUCT_SYSTEM_SERVER_APPS += SubstratumService
+#PRODUCT_PACKAGES += SubstratumService
+#PRODUCT_SYSTEM_SERVER_APPS += SubstratumService
 
 # World APN list
 PRODUCT_COPY_FILES += \
@@ -211,6 +212,7 @@ PRODUCT_COPY_FILES += \
     vendor/citrus/prebuilt/common/lib64/libjni_latinimegoogle.so:system/lib64/libjni_latinimegoogle.so
 endif
 
+# include extra product makefile if exists
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 
 # include sounds from pixel
@@ -224,16 +226,18 @@ endif
 # include definitions for SDCLANG
 include vendor/citrus/build/sdclang/sdclang.mk
 
-# Versioning System
-# Citrus-CAF first version.
+# Citrus-CAF versions.
 CITRUS_VERSION_FLAVOUR = KeyLime
-CITRUS_VERSION_CODENAME = 4.0
+CITRUS_VERSION_CODENAME := 5.0
+PLATFORM_VERSION_FLAVOUR := Pie
+
 ifndef CITRUS_BUILD_TYPE
 ifeq ($(CITRUS_RELEASE),true)
     CITRUS_BUILD_TYPE := OFFICIAL
     CITRUS_POSTFIX := -$(shell date +"%Y%m%d")
 else
-    CITRUS_BUILD_TYPE := UNOFFICIAL
+    CITRUS_BUILD_TYPE := COMMUNITY
+    CITRUS_POSTFIX := -$(shell date +"%Y%m%d-%H%M")
 endif
 endif
 
@@ -241,13 +245,9 @@ ifdef CITRUS_BUILD_EXTRA
     CITRUS_POSTFIX := -$(CITRUS_BUILD_EXTRA)
 endif
 
-ifndef CITRUS_POSTFIX
-    CITRUS_POSTFIX := -$(shell date +"%Y%m%d-%H%M")
-endif
-
 # Set all versions
-CITRUS_VERSION := CitrusCAF-$(CITRUS_VERSION_CODENAME)-$(CITRUS_VERSION_FLAVOUR)-$(CITRUS_BUILD_TYPE)$(CITRUS_POSTFIX)
-CITRUS_MOD_VERSION := CitrusCAF-$(CITRUS_VERSION_CODENAME)-$(CITRUS_VERSION_FLAVOUR)-$(CITRUS_BUILD)-$(CITRUS_BUILD_TYPE)$(CITRUS_POSTFIX)
+CITRUS_VERSION := CitrusCAF-v$(CITRUS_VERSION_CODENAME)-$(CITRUS_VERSION_FLAVOUR)-$(PLATFORM_VERSION_FLAVOUR)-$(CITRUS_BUILD_TYPE)$(CITRUS_POSTFIX)
+CITRUS_MOD_VERSION := CitrusCAF-v$(CITRUS_VERSION_CODENAME)-$(CITRUS_VERSION_FLAVOUR)-$(PLATFORM_VERSION_FLAVOUR)-$(CITRUS_BUILD)-$(CITRUS_BUILD_TYPE)$(CITRUS_POSTFIX)
 
 # Citrus Bloats
 PRODUCT_PACKAGES += \
@@ -263,10 +263,10 @@ PRODUCT_PACKAGES += \
     LighteningBrowser
 
 # DU Utils Library
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     org.dirtyunicorns.utils
 
-PRODUCT_BOOT_JARS += \
+#PRODUCT_BOOT_JARS += \
     org.dirtyunicorns.utils
 
 PRODUCT_PACKAGES += \

@@ -1,7 +1,0 @@
-# Revision
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.caf.revision=LA.UM.6.4.r1-07600-8x98.0
-
-# Security patch
-export BUILD_ID=OPM1.171019.019
-PLATFORM_SECURITY_PATCH := 2018-02-05
