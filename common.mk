@@ -272,3 +272,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
    OmniStyle \
    OmniJaws
+
+# TCP Connection Management
+PRODUCT_PACKAGES += tcmiface
+PRODUCT_BOOT_JARS += tcmiface
