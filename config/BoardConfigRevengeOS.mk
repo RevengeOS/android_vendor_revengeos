@@ -7,3 +7,5 @@ include vendor/revengeos/config/BoardConfigQcom.mk
 endif
 
 -include vendor/revengeos/perf/BoardConfigVendor.mk
+
+include vendor/aosp/config/BoardConfigKernel.mk
