@@ -3,10 +3,15 @@ include vendor/citrus/build/core/qcom_utils.mk
 B_FAMILY := msm8226 msm8610 msm8974
 B64_FAMILY := msm8992 msm8994
 BR_FAMILY := msm8909 msm8916
+UM_3_18_FAMILY := msm8937 msm8953 msm8996
+UM_4_4_FAMILY := msm8998 sdm660
 
 BOARD_USES_ADRENO := true
 
-TARGET_USES_QCOM_BSP := true
+# UM platforms no longer need this set on O+
+ifneq ($(call is-board-platform-in-list, $(UM_3_18_FAMILY) $(UM_4_4_FAMILY)),true)
+    TARGET_USES_QCOM_BSP := true
+endif
 
 # Tell HALs that we're compiling an AOSP build with an in-line kernel
 TARGET_COMPILE_WITH_MSM_KERNEL := true
