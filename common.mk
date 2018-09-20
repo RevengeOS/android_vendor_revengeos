@@ -67,37 +67,45 @@ PRODUCT_COPY_FILES += \
     vendor/citrus/prebuilt/common/bin/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
 endif
 
-# Boot animation include
-ifneq ($(TARGET_SCREEN_WIDTH) $(TARGET_SCREEN_HEIGHT),$(space))
-
-# determine the smaller dimension
-TARGET_BOOTANIMATION_SIZE := $(shell \
-  if [ $(TARGET_SCREEN_WIDTH) -lt $(TARGET_SCREEN_HEIGHT) ]; then \
-    echo $(TARGET_SCREEN_WIDTH); \
+# Include low res bootanimation if display is less then 720p
+TARGET_BOOTANIMATION_480 := $(shell \
+  if [ $(TARGET_SCREEN_WIDTH) -lt 720 ]; then \
+    echo 'true'; \
   else \
-    echo $(TARGET_SCREEN_HEIGHT); \
+    echo ''; \
   fi )
 
-# get a sorted list of the sizes
-bootanimation_sizes := $(subst .zip,, $(shell ls vendor/citrus/prebuilt/common/bootanimation))
-bootanimation_sizes := $(shell echo -e $(subst $(space),'\n',$(bootanimation_sizes)) | sort -rn)
+# Include high res bootanimation if display is greater then 1080p
+TARGET_BOOTANIMATION_1440 := $(shell \
+  if [ $(TARGET_SCREEN_WIDTH) -gt 1080 ]; then \
+    echo 'true'; \
+  else \
+    echo ''; \
+  fi )
 
-# find the appropriate size and set
-define check_and_set_bootanimation
-$(eval TARGET_BOOTANIMATION_NAME := $(shell \
-  if [ -z "$(TARGET_BOOTANIMATION_NAME)" ]; then
-    if [ $(1) -le $(TARGET_BOOTANIMATION_SIZE) ]; then \
-      echo $(1); \
-      exit 0; \
-    fi;
-  fi;
-  echo $(TARGET_BOOTANIMATION_NAME); ))
-endef
-$(foreach size,$(bootanimation_sizes), $(call check_and_set_bootanimation,$(size)))
-
+# Bootanimation
+#qHD
+ifeq ($(TARGET_BOOTANIMATION_480), true)
 PRODUCT_COPY_FILES += \
-    vendor/citrus/prebuilt/common/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip:system/media/bootanimation.zip
+    vendor/citrus/prebuilt/common/bootanimation/480.zip:system/media/bootanimation.zip
+else
+#HD
+ifeq ($(TARGET_SCREEN_WIDTH), 720)
+PRODUCT_COPY_FILES += \
+    vendor/citrus/prebuilt/common/bootanimation/720.zip:system/media/bootanimation.zip
+else
+#QHD
+ifeq ($(TARGET_BOOTANIMATION_1440), true)
+PRODUCT_COPY_FILES += \
+    vendor/citrus/prebuilt/common/bootanimation/1440.zip:system/media/bootanimation.zip
+else
+#FHD
+PRODUCT_COPY_FILES += \
+    vendor/citrus/prebuilt/common/bootanimation/1080.zip:system/media/bootanimation.zip
 endif
+endif
+endif
+
 
 # Clean up packages cache to avoid wrong strings and resources
 PRODUCT_COPY_FILES += \
