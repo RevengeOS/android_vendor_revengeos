@@ -9,6 +9,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
 endif
 
+# Allow vendor/extra to override any property by setting it first
+$(call inherit-product-if-exists, vendor/extra/product.mk)
+
 # Fixes: terminate called after throwing an instance of 'std::out_of_range' what(): basic_string::erase
 # error with prop override
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
@@ -75,9 +78,6 @@ PRODUCT_COPY_FILES += \
 
 # Add our overlays
 DEVICE_PACKAGE_OVERLAYS += vendor/revengeos/overlay/common
-
-# include extra product makefile if exists
-$(call inherit-product-if-exists, vendor/extra/product.mk)
 
 # include definitions for SDCLANG
 include vendor/revengeos/build/sdclang/sdclang.mk
