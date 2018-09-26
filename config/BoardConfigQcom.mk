@@ -33,9 +33,9 @@ TARGET_USES_MEDIA_EXTENSIONS := true
 TARGET_USES_QCOM_MM_AUDIO := true
 
 # Enable color metadata for every UM platform
-ifeq ($(call is-board-platform-in-list, $(UM_PLATFORMS)),true)
-    TARGET_USES_COLOR_METADATA := true
-endif
+#ifeq ($(call is-board-platform-in-list, $(UM_PLATFORMS)),true)
+#    TARGET_USES_COLOR_METADATA := true
+#endif
 
 # Enable DRM PP driver on UM platforms that support it
 ifeq ($(call is-board-platform-in-list, $(UM_4_9_FAMILY)),true)
