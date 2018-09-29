@@ -9,9 +9,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     telephony-ext
 
-PRODUCT_BOOT_JARS += \
-    telephony-ext
-
 # CellBroadcastReceiver
 PRODUCT_PACKAGES += \
     CellBroadcastReceiver
@@ -22,7 +19,8 @@ PRODUCT_PACKAGES += \
 
 # Additional apps
 PRODUCT_PACKAGES += \
-    Music
+    Music \
+    Recorder
 
 # NTFS-3G support
 PRODUCT_PACKAGES += \
