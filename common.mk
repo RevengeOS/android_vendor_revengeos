@@ -239,7 +239,7 @@ endif
 include vendor/citrus/build/sdclang/sdclang.mk
 
 # Citrus-CAF versions.
-CAF_REVISION := LA.UM.7.3.r1-05100-sdm845.0
+CAF_REVISION := LA.UM.7.3.r1-05500-sdm845.0
 CITRUS_VERSION_FLAVOUR = KeyLime
 CITRUS_VERSION_CODENAME := 5.0
 PLATFORM_VERSION_FLAVOUR := Pie
@@ -282,7 +282,7 @@ PRODUCT_PACKAGES += \
 #PRODUCT_BOOT_JARS += \
     org.dirtyunicorns.utils
 
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
    OmniStyle \
    OmniJaws
 
