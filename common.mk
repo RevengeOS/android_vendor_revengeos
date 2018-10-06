@@ -106,11 +106,6 @@ endif
 endif
 endif
 
-
-# Clean up packages cache to avoid wrong strings and resources
-PRODUCT_COPY_FILES += \
-    vendor/citrus/prebuilt/common/bin/clean_cache.sh:system/bin/clean_cache.sh
-
 # Changelog
 ifeq ($(CITRUS_RELEASE),true)
 PRODUCT_COPY_FILES +=  \
@@ -261,6 +256,7 @@ endif
 # Set all versions
 CITRUS_VERSION := CitrusCAF-v$(CITRUS_VERSION_CODENAME)-$(CITRUS_VERSION_FLAVOUR)-$(PLATFORM_VERSION_FLAVOUR)-$(CITRUS_BUILD_TYPE)$(CITRUS_POSTFIX)
 CITRUS_MOD_VERSION := CitrusCAF-v$(CITRUS_VERSION_CODENAME)-$(CITRUS_VERSION_FLAVOUR)-$(PLATFORM_VERSION_FLAVOUR)-$(CITRUS_BUILD)-$(CITRUS_BUILD_TYPE)$(CITRUS_POSTFIX)
+CUSTOM_FINGERPRINT := Citrus-CAF/$(PLATFORM_VERSION)/$(CITRUS_VERSION_CODENAME)-$(CITRUS_VERSION_FLAVOUR)/$(TARGET_PRODUCT)/$(shell date +%Y%m%d-%H:%M)
 
 # Citrus Bloats
 PRODUCT_PACKAGES += \
