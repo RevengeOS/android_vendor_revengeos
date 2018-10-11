@@ -191,10 +191,8 @@ PRODUCT_PACKAGES += \
     librsjni
 
 # Themes
-PRODUCT_PACKAGES += \
-    Margarita \
-    PixelTheme \
-    Stock
+#PRODUCT_PACKAGES += \
+    Margarita
 
 # Substratum
 #PRODUCT_PACKAGES += SubstratumService
