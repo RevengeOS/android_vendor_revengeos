@@ -8,6 +8,6 @@ endif
 
 -include vendor/revengeos/perf/BoardConfigVendor.mk
 
-include vendor/aosp/config/BoardConfigKernel.mk
+include vendor/revengeos/config/BoardConfigKernel.mk
 
-include vendor/aosp/config/BoardConfigSoong.mk
+include vendor/revengeos/config/BoardConfigSoong.mk
