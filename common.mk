@@ -283,3 +283,9 @@ PRODUCT_PACKAGES += \
 # TCP Connection Management
 PRODUCT_PACKAGES += tcmiface
 PRODUCT_BOOT_JARS += tcmiface
+
+# Turbo
+PRODUCT_PACKAGES += Turbo
+PRODUCT_COPY_FILES += \
+    vendor/citrus/prebuilt/common/etc/permissions/privapp-permissions-turbo.xml:system/etc/permissions/privapp-permissions-turbo.xml \
+    vendor/citrus/prebuilt/common/etc/sysconfig/turbo-sysconfig.xml:system/etc/sysconfig/turbo-sysconfig.xml
