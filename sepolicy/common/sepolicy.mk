@@ -4,10 +4,10 @@
 #
 
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += \
-    vendor/citrus/sepolicy/common/public
+    vendor/revengeos/sepolicy/common/public
 
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
-    vendor/citrus/sepolicy/common/private
+    vendor/revengeos/sepolicy/common/private
 
 BOARD_SEPOLICY_DIRS += \
-    vendor/citrus/sepolicy/common/vendor
+    vendor/revengeos/sepolicy/common/vendor

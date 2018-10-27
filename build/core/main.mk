@@ -1,2 +1,2 @@
-# Include Citrus-CAF build properties
-include vendor/citrus/build/core/main_version.mk
+# Include RevengeOS build properties
+include vendor/revengeos/build/core/main_version.mk

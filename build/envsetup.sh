@@ -1,117 +1,21 @@
-# Citrus-CAF functions that extend build/envsetup.sh
-function __print_citrus_functions_help() {
+# RevengeOS functions that extend build/envsetup.sh
+function __print_revengeos_functions_help() {
 cat <<EOF
-Additional Citrus-CAF functions:
+Additional RevengeOS functions:
 - cout:            Changes directory to out.
 - mmp:             Builds all of the modules in the current directory and pushes them to the device.
 - mmap:            Builds all of the modules in the current directory and its dependencies, then pushes the package to the device.
 - mmmp:            Builds all of the modules in the supplied directories and pushes them to the device.
-- ctremote:        Add a git remote for Citrus-CAF github repository.
 - lineageremote:   Add git remote pointing to the LineageOS github repository.
 - aospremote:      Add git remote for matching AOSP repository.
 - cafremote:       Add git remote for matching CodeAurora repository.
 - mka:             Builds using SCHED_BATCH on all processors.
 - mkap:            Builds the module(s) using mka and pushes them to the device.
-- ctrmka:          Cleans and builds using mka.
 - repodiff:        Diff 2 different branches or tags within the same repo
 - repolastsync:    Prints date and time of last repo sync.
 - reposync:        Parallel repo sync using ionice and SCHED_BATCH.
 - repopick:        Utility to fetch changes from Gerrit.
-- installboot:     Installs a boot.img to the connected device.
-- installrecovery: Installs a recovery.img to the connected device.
 EOF
-}
-
-function ctr_device_combos()
-{
-    local T list_file variant device
-
-    T="$(gettop)"
-    list_file="${T}/vendor/citrus/citrus.devices"
-    variant="userdebug"
-
-    if [[ $1 ]]
-    then
-        if [[ $2 ]]
-        then
-            list_file="$1"
-            variant="$2"
-        else
-            if [[ ${VARIANT_CHOICES[@]} =~ (^| )$1($| ) ]]
-            then
-                variant="$1"
-            else
-                list_file="$1"
-            fi
-        fi
-    fi
-
-    if [[ ! -f "${list_file}" ]]
-    then
-        echo "unable to find device list: ${list_file}"
-        list_file="${T}/vendor/citrus/citrus.devices"
-        echo "defaulting device list file to: ${list_file}"
-    fi
-
-    while IFS= read -r device
-    do
-        add_lunch_combo "citrus_${device}-${variant}"
-    done < "${list_file}"
-}
-
-function ctr_rename_function()
-{
-    eval "original_citrus_$(declare -f ${1})"
-}
-
-function _ctr_build_hmm() #hidden
-{
-    printf "%-8s %s" "${1}:" "${2}"
-}
-
-function ctr_append_hmm()
-{
-    HMM_DESCRIPTIVE=("${HMM_DESCRIPTIVE[@]}" "$(_ctr_build_hmm "$1" "$2")")
-}
-
-function ctr_add_hmm_entry()
-{
-    for c in ${!HMM_DESCRIPTIVE[*]}
-    do
-        if [[ "${1}" == $(echo "${HMM_DESCRIPTIVE[$c]}" | cut -f1 -d":") ]]
-        then
-            HMM_DESCRIPTIVE[${c}]="$(_ctr_build_hmm "$1" "$2")"
-            return
-        fi
-    done
-    ctr_append_hmm "$1" "$2"
-}
-
-function ctremote()
-{
-    local proj project
-
-    if ! git rev-parse &> /dev/null
-    then
-        echo "Not in a git directory. Please run this from an Android repository you wish to set up."
-        return
-    fi
-    git remote rm ctr 2> /dev/null
-
-    proj="$(pwd -P | sed "s#$ANDROID_BUILD_TOP/##g")"
-
-    project="${proj//\//_}"
-
-    if (echo "$project" | egrep -q 'audio|display|media') ; then
-    project=${project%_msm*}
-    fi
-
-    if (echo "$project" | egrep -q 'audio|display|media') ; then
-    project=${project%_default*}
-    fi
-
-    git remote add ctr "https://github.com/Citrus-CAF/$project"
-    echo "Remote 'ctr' created"
 }
 
 function lineageremote()
@@ -174,45 +78,6 @@ function cafremote()
     echo "Remote 'caf' created"
 }
 
-function ctr_push()
-{
-    local branch path_opt proj
-    branch="p9x"
-    path_opt=
-
-    if [[ "$1" ]]
-    then
-        proj="$ANDROID_BUILD_TOP/$(echo "$1" | sed "s#$ANDROID_BUILD_TOP/##g")"
-        path_opt="--git-dir=$(printf "%q/.git" "${proj}")"
-    else
-        proj="$(pwd -P)"
-    fi
-    proj="$(echo "$proj" | sed "s#$ANDROID_BUILD_TOP/##g")"
-    proj="$(echo "$proj" | sed 's#/$##')"
-    proj="${proj//\//_}"
-
-    if (echo "$proj" | egrep -q 'external|system|build|bionic|art|libcore|prebuilt|dalvik') ; then
-        proj="$proj"
-    fi
-
-    git $path_opt push "https://github.com/Citrus-CAF/$proj" "HEAD:$branch"
-}
-
-
-ctr_rename_function hmm
-function hmm() #hidden
-{
-    local i T
-    T="$(gettop)"
-    original_ctr_hmm
-    echo
-
-    echo "vendor/citrus extended functions. The complete list is:"
-    for i in $(grep -P '^function .*$' "$T/vendor/citrus/build/envsetup.sh" | grep -v "#hidden" | sed 's/function \([a-z_]*\).*/\1/' | sort | uniq); do
-        echo "$i"
-    done |column
-}
-
 function mk_timer()
 {
     local start_time=$(date +"%s")
@@ -240,104 +105,6 @@ function mk_timer()
     echo " ####"
     echo
     return $ret
-}
-
-function brunch()
-{
-    breakfast $*
-    if [ $? -eq 0 ]; then
-        mka bacon
-    else
-        echo "No such item in brunch menu. Try 'breakfast'"
-        return 1
-    fi
-    return $?
-}
-
-function breakfast()
-{
-    target=$1
-    local variant=$2
-    CITRUS_DEVICES_ONLY="true"
-    unset LUNCH_MENU_CHOICES
-    add_lunch_combo full-eng
-    for f in `/bin/ls vendor/citrus/build/vendorsetup.sh 2> /dev/null`
-        do
-            echo "including $f"
-            . $f
-        done
-    unset f
-
-    if [ $# -eq 0 ]; then
-        # No arguments, so let's have the full menu
-        lunch
-    else
-        echo "z$target" | grep -q "-"
-        if [ $? -eq 0 ]; then
-            # A buildtype was specified, assume a full device name
-            lunch $target
-        else
-            # This is probably just the Citrus-CAF model name
-            if [ -z "$variant" ]; then
-                variant="userdebug"
-            fi
-            lunch citrus_$target-$variant
-        fi
-    fi
-    return $?
-}
-
-alias bib=breakfast
-
-function eat()
-{
-    if [ "$OUT" ] ; then
-        MODVERSION=$(get_build_var CITRUS_VERSION)
-        ZIPFILE=Citrus-CAF-$MODVERSION.zip
-        ZIPPATH=$OUT/$ZIPFILE
-        if [ ! -f $ZIPPATH ] ; then
-            echo "Nothing to eat"
-            return 1
-        fi
-        adb start-server # Prevent unexpected starting server message from adb get-state in the next line
-        if [ $(adb get-state) != device -a $(adb shell test -e /sbin/recovery 2> /dev/null; echo $?) != 0 ] ; then
-            echo "No device is online. Waiting for one..."
-            echo "Please connect USB and/or enable USB debugging"
-            until [ $(adb get-state) = device -o $(adb shell test -e /sbin/recovery 2> /dev/null; echo $?) = 0 ];do
-                sleep 1
-            done
-            echo "Device Found.."
-        fi
-    if (adb shell getprop ro.citrus.device | grep -q "$CITRUS_BUILD");
-    then
-        # if adbd isn't root we can't write to /cache/recovery/
-        adb root
-        sleep 1
-        adb wait-for-device
-        cat << EOF > /tmp/command
---sideload_auto_reboot
-EOF
-        if adb push /tmp/command /cache/recovery/ ; then
-            echo "Rebooting into recovery for sideload installation"
-            adb reboot recovery
-            adb wait-for-sideload
-            adb sideload $ZIPPATH
-        fi
-        rm /tmp/command
-    else
-        echo "Nothing to eat"
-        return 1
-    fi
-    return $?
-    else
-        echo "The connected device does not appear to be $CITRUS_BUILD, run away!"
-    fi
-}
-
-function omnom()
-{
-    brunch $*
-    eat
 }
 
 function cout()
@@ -449,113 +216,6 @@ function dddclient()
    fi
 }
 
-function installboot()
-{
-    if [ ! -e "$OUT/recovery/root/etc/recovery.fstab" ];
-    then
-        echo "No recovery.fstab found. Build recovery first."
-        return 1
-    fi
-    if [ ! -e "$OUT/boot.img" ];
-    then
-        echo "No boot.img found. Run make bootimage first."
-        return 1
-    fi
-    PARTITION=`grep "^\/boot" $OUT/recovery/root/etc/recovery.fstab | awk {'print $3'}`
-    if [ -z "$PARTITION" ];
-    then
-        # Try for RECOVERY_FSTAB_VERSION = 2
-        PARTITION=`grep "[[:space:]]\/boot[[:space:]]" $OUT/recovery/root/etc/recovery.fstab | awk {'print $1'}`
-        PARTITION_TYPE=`grep "[[:space:]]\/boot[[:space:]]" $OUT/recovery/root/etc/recovery.fstab | awk {'print $3'}`
-        if [ -z "$PARTITION" ];
-        then
-            echo "Unable to determine boot partition."
-            return 1
-        fi
-    fi
-    adb start-server
-    adb wait-for-online
-    adb root
-    sleep 1
-    adb wait-for-online shell mount /system 2>&1 > /dev/null
-    adb wait-for-online remount
-    if (adb shell getprop ro.citrus.device | grep -q "$CITRUS_BUILD");
-    then
-        adb push $OUT/boot.img /cache/
-        for i in $OUT/system/lib/modules/*;
-        do
-            adb push $i /system/lib/modules/
-        done
-        adb shell dd if=/cache/boot.img of=$PARTITION
-        adb shell chmod 644 /system/lib/modules/*
-        echo "Installation complete."
-    else
-        echo "The connected device does not appear to be $CITRUS_BUILD, run away!"
-    fi
-}
-
-function installrecovery()
-{
-    if [ ! -e "$OUT/recovery/root/etc/recovery.fstab" ];
-    then
-        echo "No recovery.fstab found. Build recovery first."
-        return 1
-    fi
-    if [ ! -e "$OUT/recovery.img" ];
-    then
-        echo "No recovery.img found. Run make recoveryimage first."
-        return 1
-    fi
-    PARTITION=`grep "^\/recovery" $OUT/recovery/root/etc/recovery.fstab | awk {'print $3'}`
-    if [ -z "$PARTITION" ];
-    then
-        # Try for RECOVERY_FSTAB_VERSION = 2
-        PARTITION=`grep "[[:space:]]\/recovery[[:space:]]" $OUT/recovery/root/etc/recovery.fstab | awk {'print $1'}`
-        PARTITION_TYPE=`grep "[[:space:]]\/recovery[[:space:]]" $OUT/recovery/root/etc/recovery.fstab | awk {'print $3'}`
-        if [ -z "$PARTITION" ];
-        then
-            echo "Unable to determine recovery partition."
-            return 1
-        fi
-    fi
-    adb start-server
-    adb wait-for-online
-    adb root
-    sleep 1
-    adb wait-for-online shell mount /system 2>&1 >> /dev/null
-    adb wait-for-online remount
-    if (adb shell getprop ro.citrus.device | grep -q "$CITRUS_BUILD");
-    then
-        adb push $OUT/recovery.img /cache/
-        adb shell dd if=/cache/recovery.img of=$PARTITION
-        echo "Installation complete."
-    else
-        echo "The connected device does not appear to be $CITRUS_BUILD, run away!"
-    fi
-}
-
-function makerecipe() {
-    if [ -z "$1" ]
-    then
-        echo "No branch name provided."
-        return 1
-    fi
-    cd android
-    sed -i s/'default revision=.*'/'default revision="refs\/heads\/'$1'"'/ default.xml
-    git commit -a -m "$1"
-    cd ..
-
-    repo forall -c '
-
-    if [ "$REPO_REMOTE" = "github" ]
-    then
-        pwd
-        ctemote
-        git push ctr HEAD:refs/heads/'$1'
-    fi
-    '
-}
-
 function mka() {
 
     call_hook ${FUNCNAME[0]} $@
@@ -568,25 +228,6 @@ function mka() {
     m -j "$@"
 }
 
-function ctrmka() {
-    if [ ! -z "$1" ]; then
-        for i in "$@"; do
-            case $i in
-                bacon|otapackage|systemimage)
-                    mka installclean
-                    mka $i
-                    ;;
-                *)
-                    mka clean-$i
-                    mka $i
-                    ;;
-            esac
-        done
-    else
-        mka clean
-        mka
-    fi
-}
 
 function repolastsync() {
     RLSPATH="$ANDROID_BUILD_TOP/.repo/.repo_fetchtimes.json"
@@ -636,7 +277,7 @@ function dopush()
         echo "Device Found."
     fi
 
-    if (adb shell getprop ro.citrus.device | grep -q "$CITRUS_BUILD") || [ "$FORCE_PUSH" = "true" ];
+    if (adb shell getprop ro.revengeos.device | grep -q "$REVENGEOS_BUILD") || [ "$FORCE_PUSH" = "true" ];
     then
     # retrieve IP and PORT info if we're using a TCP connection
     TCPIPPORT=$(adb devices \
@@ -751,7 +392,7 @@ EOF
     fi
     return 0
     else
-        echo "The connected device does not appear to be $CITRUS_BUILD, run away!"
+        echo "The connected device does not appear to be $REVENGEOS_BUILD, run away!"
     fi
 }
 
@@ -759,17 +400,16 @@ alias mmp='dopush mm'
 alias mmmp='dopush mmm'
 alias mmap='dopush mma'
 alias mkap='dopush mka'
-alias ctrkap='dopush ctrmka'
 
 function repopick() {
     T=$(gettop)
-    $T/vendor/citrus/build/tools/repopick.py $@
+    $T/vendor/revengeos/build/tools/repopick.py $@
 }
 
 function fixup_common_out_dir() {
     common_out_dir=$(get_build_var OUT_DIR)/target/common
     target_device=$(get_build_var TARGET_DEVICE)
-    if [ ! -z $CITRUS_FIXUP_COMMON_OUT ]; then
+    if [ ! -z $REVENGEOS_FIXUP_COMMON_OUT ]; then
         if [ -d ${common_out_dir} ] && [ ! -L ${common_out_dir} ]; then
             mv ${common_out_dir} ${common_out_dir}-${target_device}
             ln -s ${common_out_dir}-${target_device} ${common_out_dir}
@@ -802,6 +442,6 @@ fi
 export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
 
 # SDClang Environment Variables
-export SDCLANG_AE_CONFIG=vendor/citrus/build/sdclang/sdclangAE.json
-export SDCLANG_CONFIG=vendor/citrus/build/sdclang/sdclang.json
+export SDCLANG_AE_CONFIG=vendor/revengeos/build/sdclang/sdclangAE.json
+export SDCLANG_CONFIG=vendor/revengeos/build/sdclang/sdclang.json
 export SDCLANG_SA_ENABLED=false

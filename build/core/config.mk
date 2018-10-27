@@ -1,5 +1,5 @@
 # Rules for MTK targets
-include $(TOPDIR)vendor/citrus/build/core/qcom_target.mk
+include $(TOPDIR)vendor/revengeos/build/core/qcom_target.mk
 
 # We modify several neverallows, so let the build proceed
 ifneq ($(TARGET_BUILD_VARIANT),user)

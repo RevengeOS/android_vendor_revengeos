@@ -4,5 +4,5 @@
 #
 
 BOARD_SEPOLICY_DIRS += \
-    vendor/citrus/sepolicy/qcom/common \
-    vendor/citrus/sepolicy/qcom/$(TARGET_BOARD_PLATFORM)
+    vendor/revengeos/sepolicy/qcom/common \
+    vendor/revengeos/sepolicy/qcom/$(TARGET_BOARD_PLATFORM)

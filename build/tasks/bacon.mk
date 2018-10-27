@@ -15,17 +15,17 @@
 
 # -----------------------------------------------------------------
 
-# Citrus-CAF OTA update package
-CITRUS_TARGET_PACKAGE := $(PRODUCT_OUT)/$(CITRUS_MOD_VERSION).zip
+# RevengeOS package
+REVENGEOS_TARGET_PACKAGE := $(PRODUCT_OUT)/REVENGEOS-$(REVENGEOS_VERSION).zip
 
-.PHONY: bacon
-lemonade: bacon
-bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
-	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(CITRUS_TARGET_PACKAGE)
-	$(hide) $(MD5SUM) $(CITRUS_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(CITRUS_TARGET_PACKAGE).md5sum
+.PHONY: otapackage bacon
+otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
+bacon: otapackage
+	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(REVENGEOS_TARGET_PACKAGE)
+	$(hide) $(MD5SUM) $(REVENGEOS_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(REVENGEOS_TARGET_PACKAGE).md5sum
 	@echo "done"
 	@echo "===============================-Package complete-============================================================="
-	@echo "Zip: $(CITRUS_TARGET_PACKAGE)"
-	@echo "MD5: `cat $(CITRUS_TARGET_PACKAGE).md5sum | awk '{print $$1}' `"
-	@echo "Size: `du -sh $(CITRUS_TARGET_PACKAGE) | awk '{print $$1}' `"
-	@echo "=============================================================================================================="
+	@echo "Zip: $(REVENGEOS_TARGET_PACKAGE)"
+	@echo "MD5: `cat $(REVENGEOS_TARGET_PACKAGE).md5sum | awk '{print $$1}' `"
+	@echo "Size: `du -sh $(REVENGEOS_TARGET_PACKAGE) | awk '{print $$1}' `"
+@echo "=============================================================================================================="
