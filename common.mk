@@ -115,11 +115,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     messaging \
     CellBroadcastReceiver \
-    Stk \
-    telephony-ext
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
+    Stk
 
 #RCS
 PRODUCT_PACKAGES += \
