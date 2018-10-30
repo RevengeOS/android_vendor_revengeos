@@ -81,3 +81,9 @@ $(call inherit-product-if-exists, vendor/extra/product.mk)
 
 # include definitions for SDCLANG
 include vendor/revengeos/build/sdclang/sdclang.mk
+
+# GApps
+include vendor/gapps/config.mk
+
+# RevengeUI
+include vendor/revengeui/config.mk
