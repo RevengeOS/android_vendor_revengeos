@@ -19,6 +19,8 @@ PRODUCT_PACKAGES += \
     Stk \
     CellBroadcastReceiver
 
+IS_PHONE := true
+
 #RCS
 PRODUCT_PACKAGES += \
     rcs_service_aidl \
