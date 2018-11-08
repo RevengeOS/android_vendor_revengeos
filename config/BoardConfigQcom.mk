@@ -12,9 +12,9 @@ UM_PLATFORMS := $(UM_3_18_FAMILY) $(UM_4_4_FAMILY) $(UM_4_9_FAMILY)
 BOARD_USES_ADRENO := true
 
 # UM platforms no longer need this set on O+
-#ifeq ($(call is-board-platform-in-list, $(UM_PLATFORMS)),true)
-#    TARGET_USES_COLOR_METADATA := true
-#endif
+ifneq ($(call is-board-platform-in-list, $(UM_PLATFORMS)),true)
+    TARGET_USES_QCOM_BSP := true
+endif
 
 # Tell HALs that we're compiling an AOSP build with an in-line kernel
 TARGET_COMPILE_WITH_MSM_KERNEL := true
@@ -34,9 +34,9 @@ TARGET_USES_MEDIA_EXTENSIONS := true
 TARGET_USES_QCOM_MM_AUDIO := true
 
 # Enable color metadata for every UM platform
-ifeq ($(call is-board-platform-in-list, $(UM_PLATFORMS)),true)
-    TARGET_USES_COLOR_METADATA := true
-endif
+#ifeq ($(call is-board-platform-in-list, $(UM_PLATFORMS)),true)
+#    TARGET_USES_COLOR_METADATA := true
+#endif
 
 # Enable DRM PP driver on UM platforms that support it
 ifeq ($(call is-board-platform-in-list, $(UM_4_9_FAMILY)),true)
