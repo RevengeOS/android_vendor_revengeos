@@ -1,4 +1,6 @@
 supported_devices=(
+  'mido'
+  'santoni'
   'tissot'
   'vince'
   'X00TD'
