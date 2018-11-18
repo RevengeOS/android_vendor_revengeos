@@ -115,6 +115,7 @@ case "$1" in
         fi
     fi
     check_blacklist tmp
+    rm -rf /data/system/package_cache
     run_stage pre-restore
     run_stage restore
     run_stage post-restore
