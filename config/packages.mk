@@ -22,6 +22,10 @@ PRODUCT_PACKAGES += \
     Music \
     Recorder
 
+# RevengeDelta
+PRODUCT_PACKAGES += \
+   RevengeDelta
+
 # NTFS-3G support
 PRODUCT_PACKAGES += \
     fsck.ntfs \
