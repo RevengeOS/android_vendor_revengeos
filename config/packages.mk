@@ -23,8 +23,10 @@ PRODUCT_PACKAGES += \
     Recorder
 
 # RevengeDelta
+ifeq ($(REVENGEOS_BUILDTYPE),OFFICIAL)
 PRODUCT_PACKAGES += \
    RevengeDelta
+endif
 
 # NTFS-3G support
 PRODUCT_PACKAGES += \
