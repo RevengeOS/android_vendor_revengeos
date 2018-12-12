@@ -18,3 +18,4 @@ ADDITIONAL_BUILD_PROPERTIES += BUILD_DISPLAY_ID="$(BUILD_ID)-$(shell whoami)@$(s
 ADDITIONAL_BUILD_PROPERTIES += \
     ro.caf.revision=$(CAF_REVISION) \
     ro.revengeos.version=RevengeOS-$(REVENGEOS_VERSION)
+    ro.ota.revengeos.version=$(REVENGEOS_VERSION)
