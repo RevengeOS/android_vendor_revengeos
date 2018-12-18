@@ -22,10 +22,6 @@ PRODUCT_PACKAGES += \
     Music \
     Recorder
 
-# Ambient Play
-PRODUCT_PACKAGES += \
-    AmbientPlayHistoryProvider
-
 # RevengeDelta
 ifeq ($(REVENGEOS_BUILDTYPE),OFFICIAL)
 PRODUCT_PACKAGES += \
