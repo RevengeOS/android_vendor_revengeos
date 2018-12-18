@@ -20,7 +20,13 @@ PRODUCT_PACKAGES += \
 # Additional apps
 PRODUCT_PACKAGES += \
     Music \
-    Recorder
+    Recorder \
+    WeatherProvider
+
+# Weather
+PRODUCT_COPY_FILES += \
+    vendor/revengeos/prebuilt/etc/permissions/com.android.providers.weather.xml:system/etc/permissions/com.android.providers.weather.xml \
+    vendor/revengeos/prebuilt/etc/default-permissions/com.android.providers.weather.xml:system/etc/default-permissions/com.android.providers.weather.xml
 
 # RevengeDelta
 ifeq ($(REVENGEOS_BUILDTYPE),OFFICIAL)
