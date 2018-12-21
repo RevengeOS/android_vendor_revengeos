@@ -11,6 +11,9 @@ UM_PLATFORMS := $(UM_3_18_FAMILY) $(UM_4_4_FAMILY) $(UM_4_9_FAMILY)
 
 BOARD_USES_ADRENO := true
 
+# Disable SDClang by default
+SDCLANG := false
+
 # UM platforms no longer need this set on O+
 ifneq ($(call is-board-platform-in-list, $(UM_PLATFORMS)),true)
     TARGET_USES_QCOM_BSP := true
