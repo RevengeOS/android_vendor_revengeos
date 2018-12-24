@@ -5,6 +5,10 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
     librsjni
 
+# SnapCamera support
+PRODUCT_PACKAGES += \
+    SnapCamera
+
 # Telephony
 PRODUCT_PACKAGES += \
     telephony-ext
