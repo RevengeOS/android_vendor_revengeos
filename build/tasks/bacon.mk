@@ -16,7 +16,7 @@
 # -----------------------------------------------------------------
 
 # RevengeOS package
-REVENGEOS_TARGET_PACKAGE := $(PRODUCT_OUT)/REVENGEOS-$(REVENGEOS_VERSION).zip
+REVENGEOS_TARGET_PACKAGE := $(PRODUCT_OUT)/RevengeOS-$(REVENGEOS_VERSION).zip
 
 .PHONY: otapackage bacon
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
