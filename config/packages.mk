@@ -1,10 +1,5 @@
 # Additional packages
 
-# Include explicitly to work around GMS issues
-PRODUCT_PACKAGES += \
-    libprotobuf-cpp-full \
-    librsjni
-
 # SnapCamera support
 PRODUCT_PACKAGES += \
     SnapCamera
