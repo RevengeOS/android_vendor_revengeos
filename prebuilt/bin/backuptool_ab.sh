@@ -4,6 +4,7 @@
 #
 
 rm -rf /data/system/package_cache
+rm -rf /data/data/com.android.providers.weather
 
 export S=/system
 export C=/postinstall/tmp/backupdir
