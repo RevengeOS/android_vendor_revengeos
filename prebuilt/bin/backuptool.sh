@@ -4,7 +4,7 @@
 #
 
 rm -rf /data/system/package_cache
-rm -rf /data/data/com.android.providers.weather
+rm -rf /data/data/com.revengeos.weather.client
 
 export C=/tmp/backupdir
 export S=/system

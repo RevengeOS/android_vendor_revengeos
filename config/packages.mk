@@ -25,7 +25,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Music \
     Recorder \
-    WeatherProvider
+    WeatherClient
 
 # Weather
 PRODUCT_COPY_FILES += \
