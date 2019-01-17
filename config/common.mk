@@ -24,9 +24,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.root_access=1 \
     ro.opa.eligible_device=true
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.selinux=1
-
 # Tethering - allow without requiring a provisioning app
 # (for devices that check this)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
