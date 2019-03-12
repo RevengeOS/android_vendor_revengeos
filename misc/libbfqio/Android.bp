@@ -1,5 +1,5 @@
 //
-// Copyright (C) 2017-2019 The LineageOS Project
+// Copyright (C) 2017 The LineageOS Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -20,9 +20,8 @@ cc_library_headers {
     export_include_dirs: ["include"],
 }
 
-cc_library {
-    name: "libbfqio",
-    vendor_available: true,
+cc_defaults {
+    name: "libbfqio_defaults",
     srcs: [
         "bfqio.c",
     ],
@@ -41,4 +40,16 @@ cc_library {
         "-Wall",
         "-Wextra",
     ],
+}
+
+cc_library {
+    name: "libbfqio",
+    vendor_available: true,
+    defaults: ["libbfqio_defaults"],
+}
+
+cc_library {
+    name: "libbfqio_vendor",
+    vendor: true,
+    defaults: ["libbfqio_defaults"],
 }
