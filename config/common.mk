@@ -18,11 +18,20 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 # general properties
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    dalvik.vm.debug.alloc=0 \
     ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
+    ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
+    ro.error.receiver.system.apps=com.google.android.gms \
     ro.com.android.wifi-watchlist=GoogleGuest \
     ro.setupwizard.enterprise_mode=1 \
     persist.sys.root_access=1 \
-    ro.opa.eligible_device=true
+    ro.opa.eligible_device=true \
+    persist.sys.disable_rescue=true \
+    ro.setupwizard.rotation_locked=true \
+    keyguard.no_require_sim=true \
+    ro.com.android.dataroaming=false \
+    ro.atrace.core.services=com.google.android.gms,com.google.android.gms.ui,com.google.android.gms.persistent \
+    ro.com.android.dateformat=MM-dd-yyyy
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.build.selinux=1
@@ -77,6 +86,14 @@ PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 PRODUCT_COPY_FILES += \
     vendor/revengeos/prebuilt/media/audio/BatteryPlugged.ogg:system/media/audio/ui/BatteryPlugged.ogg \
     vendor/revengeos/prebuilt/media/audio/BatteryPlugged_48k.ogg:system/media/audio/ui/BatteryPlugged_48k.ogg
+
+# Storage manager
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.storage_manager.enabled=true
+
+# Media
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+media.recorder.show_manufacturer_and_model=true
 
 # Additional packages
 -include vendor/revengeos/config/packages.mk
