@@ -367,6 +367,10 @@
   <apn carrier="TIM IT WAP" mcc="222" mnc="01" apn="wap.tim.it" proxy="" port="" user="WAPTIM" password="WAPTIM" mmsc="" authtype="1" type="default,supl" />
   <apn carrier="TIM MMS" mcc="222" mnc="01" apn="mms.tim.it" proxy="" port="" user="" password="" mmsc="http://mms.tim.it/servlets/mms" mmsproxy="213.230.130.89" mmsport="80" type="mms" />
   <apn carrier="iTIM" mcc="222" mnc="01" apn="unico.tim.it" proxy="213.230.130.89" port="80" user="" password="" mmsc="http://mms.tim.it/servlets/mms" mmsproxy="213.230.130.89" mmsport="80" type="mms" />
+  <apn carrier="Kenamobile web" mcc="222" mnc="01" apn="web.kenamobile.it" type="default" mvno_type="spn" mvno_match_data="Kena Mobile" />
+  <apn carrier="Kenamobile MMS" mcc="222" mnc="01" apn="mms.kenamobile.it" mmsc="http://mms.kenamobile.it/" mmsproxy="10.248.1.12" mmsport="80" type="mms" mvno_type="spn" mvno_match_data="Kena Mobile" />
+  <apn carrier="Kenamobile web" mcc="222" mnc="07" apn="web.kenamobile.it" type="default" />
+  <apn carrier="Kenamobile MMS" mcc="222" mnc="07" apn="mms.kenamobile.it" mmsc="http://mms.kenamobile.it/" mmsproxy="10.248.1.12" mmsport="80" type="mms" />
   <apn carrier="Tiscali INTERNET" mcc="222" mnc="01" apn="tiscalimobileinternet" type="default,supl" />
   <apn carrier="Tiscali MMS" mcc="222" mnc="01" apn="tiscalimobilemms" mmsc="http://mms.tiscali.mobi/servlets/mms" mmsproxy="213.230.130.89" mmsport="80" type="mms" />
   <apn carrier="COOPVOCE WEB" mcc="222" mnc="01" apn="web.coopvoce.it" proxy="" port="" user="" password="" mmsc="" mvno_type="spn" mvno_match_data="Coop Mobile" type="default,supl" />
