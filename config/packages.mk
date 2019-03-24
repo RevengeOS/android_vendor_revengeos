@@ -62,7 +62,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Permissions
 PRODUCT_PACKAGES += \
     privapp-permissions-revengeos.xml
-
-# TCP Connection Management
-PRODUCT_PACKAGES += tcmiface
-PRODUCT_BOOT_JARS += tcmiface
