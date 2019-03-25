@@ -18,7 +18,7 @@ PRODUCT_PACKAGES += \
 
 # Additional apps
 PRODUCT_PACKAGES += \
-    Music \
+    RetroMusicPlayer \
     Recorder \
     WeatherClient
 
