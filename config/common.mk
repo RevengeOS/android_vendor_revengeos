@@ -54,7 +54,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/revengeos/prebuilt/etc/init.d/00banner:system/etc/init.d/00banner \
     vendor/revengeos/prebuilt/bin/sysinit:system/bin/sysinit \
-    vendor/revengeos/prebuilt/etc/init.revengeos.rc:root/init.revengeos.rc
+    vendor/revengeos/prebuilt/etc/init/init.revengeos.rc:system/etc/init/init.revengeos.rc
 
 # Enable SIP and VoIP on all targets
 PRODUCT_COPY_FILES += \
