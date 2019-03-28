@@ -1,6 +1,2 @@
-
-# /data/system access
-allow system_app system_data_file:file r_file_perms;
-
 # Read selinux status
 allow system_app selinuxfs:file r_file_perms;
