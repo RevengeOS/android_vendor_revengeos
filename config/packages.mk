@@ -1,8 +1,8 @@
 # Additional packages
 
-# SnapCamera support
+# Snap support
 PRODUCT_PACKAGES += \
-    SnapCamera
+    Snap
 
 # Telephony
 PRODUCT_PACKAGES += \
