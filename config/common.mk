@@ -81,9 +81,6 @@ PRODUCT_COPY_FILES += \
 # Additional packages
 -include vendor/revengeos/config/packages.mk
 
-# SELinux Policy
--include vendor/revengeos/sepolicy/sepolicy.mk
-
 # Add our overlays
 DEVICE_PACKAGE_OVERLAYS += vendor/revengeos/overlay/common
 
