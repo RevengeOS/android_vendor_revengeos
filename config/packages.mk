@@ -33,6 +33,10 @@ PRODUCT_PACKAGES += \
    RevengeDelta
 endif
 
+# Revenge Launcher
+PRODUCT_PACKAGES += \
+    RevengeLauncher
+
 # NTFS-3G support
 PRODUCT_PACKAGES += \
     fsck.ntfs \
