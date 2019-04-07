@@ -4,7 +4,6 @@
 #
 
 rm -rf /data/system/package_cache
-rm -rf /data/data/com.revengeos.weather.client
 
 export S=/system
 export C=/postinstall/tmp/backupdir
