@@ -3,8 +3,6 @@
 # Backup and restore addon /system files
 #
 
-rm -rf /data/system/package_cache
-
 export C=/tmp/backupdir
 export S=/system
 
