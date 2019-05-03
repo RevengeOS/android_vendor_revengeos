@@ -39,6 +39,10 @@ PRODUCT_COPY_FILES += \
     vendor/revengeos/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
     vendor/revengeos/prebuilt/common/bin/50-cm.sh:system/addon.d/50-cm.sh
 
+# Copy all custom init rc files
+$(foreach f,$(wildcard vendor/revengeos/prebuilt/common/etc/init/*.rc),\
+	$(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_SYSTEM)/etc/init/$(notdir $f)))
+
 # system mount
 PRODUCT_COPY_FILES += \
     vendor/revengeos/prebuilt/common/bin/system-mount.sh:install/bin/system-mount.sh
