@@ -54,6 +54,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/revengeos/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
 
+# Some permissions
+PRODUCT_COPY_FILES += \
+    vendor/revengeos/config/permissions/privapp-permissions-custom.xml:system/etc/permissions/privapp-permissions-custom.xml
+
 # init.d support
 PRODUCT_COPY_FILES += \
     vendor/revengeos/prebuilt/etc/init.d/00banner:system/etc/init.d/00banner \
