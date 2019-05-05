@@ -15,9 +15,16 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 
 # SIM Toolkit
 PRODUCT_PACKAGES += \
-    PrebuiltBugle \
     Stk \
     CellBroadcastReceiver
+
+ifneq ($(BUILD_GAPPS), false)
+PRODUCT_PACKAGES += \
+    PrebuiltBugle
+else
+PRODUCT_PACKAGES += \
+    messaging
+endif
 
 IS_PHONE := true
 
