@@ -71,4 +71,5 @@ PRODUCT_COPY_FILES += \
 # Priv-app permissions
 PRODUCT_COPY_FILES += \
     vendor/revengeos/config/permissions/com.android.screenshot.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.android.screenshot.xml \
+    vendor/revengeos/config/permissions/privapp-permissions-livedisplay-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-livedisplay-product.xml \
     vendor/revengeos/config/permissions/privapp-permissions-revengeos-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-revengeos-product.xml
