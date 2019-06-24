@@ -66,3 +66,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Permissions
 PRODUCT_PACKAGES += \
     privapp-permissions-revengeos.xml
+
+ifeq ($(BUILD_GAPPS), false) 
+PRODUCT_PACKAGES += \
+    ViaBrowser
+endif
