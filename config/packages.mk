@@ -22,6 +22,11 @@ PRODUCT_PACKAGES += \
     Recorder \
     WeatherClient
 
+# Cutout control overlays
+PRODUCT_PACKAGES += \
+    HideCutout \
+    StatusBarStock
+
 # Weather
 PRODUCT_COPY_FILES += \
     vendor/revengeos/prebuilt/etc/permissions/com.android.providers.weather.xml:system/etc/permissions/com.android.providers.weather.xml \
