@@ -12,6 +12,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     CellBroadcastReceiver
 
+# Long screenshot
+PRODUCT_PACKAGES += \
+    Longshot
+
+
 # Exchange support
 PRODUCT_PACKAGES += \
     Exchange2
