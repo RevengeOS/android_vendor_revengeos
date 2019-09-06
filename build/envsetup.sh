@@ -674,6 +674,17 @@ function repopick() {
     $T/vendor/revengeos/build/tools/repopick.py $@
 }
 
+# check and set ccache path on envsetup
+if [ -z ${CCACHE_EXEC} ]; then
+    ccache_path=$(which ccache)
+    if [ ! -z "$ccache_path" ]; then
+        export CCACHE_EXEC="$ccache_path"
+        echo "ccache found and CCACHE_EXEC has been set to : $ccache_path"
+    else
+        echo "ccache not found/installed!"
+    fi
+fi
+
 # Java compiler hax
 export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
 
