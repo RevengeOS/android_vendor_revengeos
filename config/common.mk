@@ -14,10 +14,6 @@
 
 include vendor/arrow/config/version.mk
 
-PRODUCT_COPY_FILES += \
-    vendor/arrow/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
-    vendor/arrow/prebuilt/common/bin/sysinit:system/bin/sysinit  \
-
 DEVICE_PACKAGE_OVERLAYS += \
     vendor/arrow/overlay/common
 
@@ -28,10 +24,6 @@ PRODUCT_COPY_FILES += \
 # Enable wireless Xbox 360 controller support
 PRODUCT_COPY_FILES += \
     frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl
-
-# init file
-PRODUCT_COPY_FILES += \
-    vendor/arrow/prebuilt/common/etc/init.local.rc:system/etc/init/init.arrow.rc
 
 # Backup Tool
 ifeq ($(AB_OTA_UPDATER),true)
@@ -45,27 +37,6 @@ PRODUCT_COPY_FILES += \
     vendor/arrow/build/tools/backuptool.sh:install/bin/backuptool.sh \
     vendor/arrow/build/tools/backuptool.functions:install/bin/backuptool.functions \
     vendor/arrow/build/tools/50-cm.sh:system/addon.d/50-cm.sh
-
-# World APN list
-PRODUCT_COPY_FILES += \
-    vendor/arrow/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
-
-# Sensitive Phone Numbers list
-PRODUCT_COPY_FILES += \
-    vendor/arrow/prebuilt/common/etc/sensitive_pn.xml:system/etc/sensitive_pn.xml
-
-# Pixel sysconfig
-PRODUCT_COPY_FILES += \
-    vendor/arrow/prebuilt/common/etc/sysconfig/pixel.xml:system/etc/sysconfig/pixel.xml
-
-# Power whitelist
-PRODUCT_COPY_FILES += \
-    vendor/arrow/prebuilt/common/etc/sysconfig/custom-power-whitelist.xml:system/etc/sysconfig/custom-power-whitelist.xml
-
-# Permissions
-PRODUCT_COPY_FILES += \
-    vendor/arrow/prebuilt/common/etc/permissions/privapp-permissions-arrow.xml:system/etc/permissions/privapp-permissions-arrow.xml \
-    vendor/arrow/prebuilt/common/etc/permissions/privapp-permissions-elgoog.xml:system/etc/permissions/privapp-permissions-elgoog.xml
 
 # Do not include art debug targets
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
