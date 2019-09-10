@@ -13,13 +13,13 @@ EXPORT_TO_SOONG := \
 # Documentation here:
 # https://github.com/LineageOS/android_build_soong/commit/8328367c44085b948c003116c0ed74a047237a69
 
-SOONG_CONFIG_NAMESPACES += arrowVarsPlugin
+SOONG_CONFIG_NAMESPACES += revengeosVarsPlugin
 
-SOONG_CONFIG_arrowVarsPlugin :=
+SOONG_CONFIG_revengeosVarsPlugin :=
 
 define addVar
-  SOONG_CONFIG_arrowVarsPlugin += $(1)
-  SOONG_CONFIG_arrowVarsPlugin_$(1) := $$(subst ",\",$$($1))
+  SOONG_CONFIG_revengeosVarsPlugin += $(1)
+  SOONG_CONFIG_revengeosVarsPlugin_$(1) := $$(subst ",\",$$($1))
 endef
 
 $(foreach v,$(EXPORT_TO_SOONG),$(eval $(call addVar,$(v))))

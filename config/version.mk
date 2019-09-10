@@ -1,5 +1,4 @@
-# Copyright (C) 2016 The Pure Nexus Project
-# Copyright (C) 2016 The JDCTeam
+# Copyright (C) 2019 RevengeOS
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,43 +12,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ARROW_MOD_VERSION = v10.0
+REVENGEOS_CODENAME := Q
+REVENGEOS_REVISION := 3
+REVENGEOS_SUBREVISION := 0
 
-ifndef ARROW_BUILD_TYPE
-    ARROW_BUILD_TYPE := UNOFFICIAL
+ifndef REVENGEOS_BUILDTYPE
+  REVENGEOS_BUILDTYPE := UNOFFICIAL
 endif
 
-ifeq ($(ARROW_BETA),true)
-    ARROW_BUILD_TYPE := BETA
-endif
+TARGET_PRODUCT_SHORT := $(TARGET_PRODUCT)
+TARGET_PRODUCT_SHORT := $(subst revengeos_,,$(TARGET_PRODUCT_SHORT))
 
-CURRENT_DEVICE=$(shell echo "$(TARGET_PRODUCT)" | cut -d'_' -f 2,3)
+REVENGEOS_VERSION := $(REVENGEOS_REVISION).$(REVENGEOS_SUBREVISION)-$(REVENGEOS_CODENAME)-$(REVENGEOS_BUILDTYPE)-$(TARGET_PRODUCT_SHORT)-$(shell date -u +%Y%m%d-%H%M)
 
-ifdef ARROW_OFFICIAL
-   LIST = $(shell curl -s https://raw.githubusercontent.com/ArrowOS/android_vendor_arrow/arrow-10.0/arrow.devices)
-   FOUND_DEVICE =  $(filter $(CURRENT_DEVICE), $(LIST))
-    ifeq ($(FOUND_DEVICE),$(CURRENT_DEVICE))
-      IS_OFFICIAL=true
-      ARROW_BUILD_TYPE := OFFICIAL
+ADDITIONAL_BUILD_PROPERTIES += BUILD_DISPLAY_ID="$(BUILD_ID)-$(shell whoami)@$(shell hostname)"
 
-PRODUCT_PACKAGES += \
-    Updater
-
-    endif
-    ifneq ($(IS_OFFICIAL), true)
-       ARROW_BUILD_TYPE := UNOFFICIAL
-       $(error Device is not official "$(FOUND)")
-    endif
-endif
-
-ARROW_VERSION := Arrow-$(ARROW_MOD_VERSION)-$(CURRENT_DEVICE)-$(ARROW_BUILD_TYPE)-$(shell date -u +%Y%m%d)
-
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-  ro.arrow.version=$(ARROW_VERSION) \
-  ro.arrow.releasetype=$(ARROW_BUILD_TYPE) \
-  ro.modversion=$(ARROW_MOD_VERSION)
-
-ARROW_DISPLAY_VERSION := Arrow-$(ARROW_MOD_VERSION)-$(ARROW_BUILD_TYPE)
-
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-  ro.arrow.display.version=$(ARROW_DISPLAY_VERSION)
+# Apply it to build.prop
+ADDITIONAL_BUILD_PROPERTIES += \
+    ro.revengeos.revision=$(REVENGEOS_REVISION).$(REVENGEOS_SUBREVISION)\
+    ro.revengeos.version=RevengeOS-$(REVENGEOS_VERSION) \
+    ro.ota.revengeos.version=$(REVENGEOS_VERSION)

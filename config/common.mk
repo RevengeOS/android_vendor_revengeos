@@ -1,4 +1,4 @@
-# Copyright (C) 2018 ArrowOS
+# Copyright (C) 2019 RevengeOS
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,10 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include vendor/arrow/config/version.mk
+include vendor/revengeos/config/version.mk
 
 DEVICE_PACKAGE_OVERLAYS += \
-    vendor/arrow/overlay/common
+    vendor/revengeos/overlay/common
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -28,15 +28,15 @@ PRODUCT_COPY_FILES += \
 # Backup Tool
 ifeq ($(AB_OTA_UPDATER),true)
 PRODUCT_COPY_FILES += \
-    vendor/arrow/build/tools/backuptool_ab.sh:system/bin/backuptool_ab.sh \
-    vendor/arrow/build/tools/backuptool_ab.functions:system/bin/backuptool_ab.functions \
-    vendor/arrow/build/tools/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
+    vendor/revengeos/build/tools/backuptool_ab.sh:system/bin/backuptool_ab.sh \
+    vendor/revengeos/build/tools/backuptool_ab.functions:system/bin/backuptool_ab.functions \
+    vendor/revengeos/build/tools/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
 endif
 
 PRODUCT_COPY_FILES += \
-    vendor/arrow/build/tools/backuptool.sh:install/bin/backuptool.sh \
-    vendor/arrow/build/tools/backuptool.functions:install/bin/backuptool.functions \
-    vendor/arrow/build/tools/50-cm.sh:system/addon.d/50-cm.sh
+    vendor/revengeos/build/tools/backuptool.sh:install/bin/backuptool.sh \
+    vendor/revengeos/build/tools/backuptool.functions:install/bin/backuptool.functions \
+    vendor/revengeos/build/tools/50-cm.sh:system/addon.d/50-cm.sh
 
 # Do not include art debug targets
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
@@ -47,7 +47,7 @@ PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 
 # Packages
-include vendor/arrow/config/packages.mk
+include vendor/revengeos/config/packages.mk
 
 # Props
-include vendor/arrow/config/props.mk
+include vendor/revengeos/config/props.mk
