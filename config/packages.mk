@@ -28,49 +28,6 @@ PRODUCT_PACKAGES += \
     stats \
     Stk
 
-# Themes Dark
-#PRODUCT_PACKAGES += \
-    GBoardDarkTheme \
-    SettingsDarkTheme \
-    SystemDarkTheme \
-    SystemUIDarkTheme \
-    UpdaterDark
-
-# Themes Black
-#PRODUCT_PACKAGES += \
-    SettingsBlackTheme \
-    SystemBlackTheme \
-    SystemUIBlackTheme \
-    UpdaterBlackAF
-
-# Accents
-#PRODUCT_PACKAGES += \
-    AmberAccent \
-    BlackAccent \
-    BlueAccent \
-    BlueGreyAccent \
-    BrownAccent \
-    CyanAccent \
-    DeepOrangeAccent \
-    DeepPurpleAccent \
-    DuiDark \
-    GBoardDark \
-    GreenAccent \
-    GreyAccent \
-    IndigoAccent \
-    LightBlueAccent \
-    LightGreenAccent \
-    LimeAccent \
-    OrangeAccent \
-    PinkAccent \
-    PurpleAccent \
-    RedAccent \
-    SettingsDark \
-    SystemDark \
-    TealAccent \
-    YellowAccent \
-    WhiteAccent
-
 # Fonts
 PRODUCT_COPY_FILES += \
     vendor/arrow/fonts/GoogleSans-Regular.ttf:system/fonts/GoogleSans-Regular.ttf \
