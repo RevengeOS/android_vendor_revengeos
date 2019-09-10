@@ -22,10 +22,6 @@ PRODUCT_PACKAGES += \
     LatinIME \
     Launcher3QuickStep \
     messaging \
-    OmniJaws \
-    Phonograph \
-    Recorder \
-    stats \
     Stk
 
 # Extra tools
