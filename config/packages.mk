@@ -24,6 +24,10 @@ PRODUCT_PACKAGES += \
     messaging \
     Stk
 
+# World APN list
+PRODUCT_PACKAGES += \
+    apns-conf.xml
+
 # Extra tools
 PRODUCT_PACKAGES += \
     7z \
