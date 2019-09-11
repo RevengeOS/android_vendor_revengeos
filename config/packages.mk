@@ -23,6 +23,11 @@ PRODUCT_PACKAGES += \
     messaging \
     Stk
 
+# RevengeOS packages
+PRODUCT_PACKAGES += \
+    RetroMusicPlayer \
+    ViaBrowser
+
 # World APN list
 PRODUCT_PACKAGES += \
     apns-conf.xml
