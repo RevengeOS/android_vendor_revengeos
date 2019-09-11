@@ -52,6 +52,9 @@ include vendor/revengeos/config/packages.mk
 # Props
 include vendor/revengeos/config/props.mk
 
+# RevengeUI
+include vendor/revengeui/config.mk
+
 # Sensitive Phone Numbers list
 PRODUCT_COPY_FILES += \
     vendor/revengeos/prebuilt/common/etc/sensitive_pn.xml:system/etc/sensitive_pn.xml
