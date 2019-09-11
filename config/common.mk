@@ -14,6 +14,7 @@
 
 include vendor/revengeos/config/version.mk
 
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/revengeos/overlay
 DEVICE_PACKAGE_OVERLAYS += \
     vendor/revengeos/overlay/common
 
