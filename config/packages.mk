@@ -28,6 +28,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     RetroMusicPlayer \
     OmniJaws \
+    WeatherIcons \
     ViaBrowser
 
 # World APN list
