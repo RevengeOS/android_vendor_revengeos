@@ -1,14 +1,14 @@
 bootstrap_go_package {
-    name: "soong-arrow",
-    pkgPath: "arrow/soong/android",
+    name: "soong-revengeos",
+    pkgPath: "revengeos/soong/android",
     srcs: [
         "android/variable.go",
     ],
 }
 
 bootstrap_go_package {
-    name: "soong-arrow-generator",
-    pkgPath: "arrow/soong/generator",
+    name: "soong-revengeos-generator",
+    pkgPath: "revengeos/soong/generator",
     deps: [
         "blueprint",
         "blueprint-pathtools",
@@ -23,11 +23,11 @@ bootstrap_go_package {
     pluginFor: ["soong_build"],
 }
 
-arrow_generator {
+revengeos_generator {
     name: "generated_kernel_includes",
 
     // The headers make command
-    cmd: "$(KERNEL_MAKE_CMD) $(KERNEL_MAKE_FLAGS) -C $(TARGET_KERNEL_SOURCE) O=$(genDir) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) $(KERNEL_CLANG_TRIPLE) $(KERNEL_CC) headers_install",
+    cmd: "$(KERNEL_MAKE_CMD) $(KERNEL_MAKE_FLAGS) -C $(TARGET_KERNEL_SOURCE) O=$(genDir) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) headers_install",
 
     // Directories that can be imported by a cc_* module generated_headers property
     export_include_dirs: ["usr/include", "usr/techpack/audio/include"],
