@@ -39,6 +39,10 @@ PRODUCT_COPY_FILES += \
     vendor/revengeos/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
     vendor/revengeos/prebuilt/common/bin/50-cm.sh:system/addon.d/50-cm.sh
 
+# system mount
+PRODUCT_COPY_FILES += \
+    vendor/revengeos/prebuilt/common/bin/system-mount.sh:install/bin/system-mount.sh
+
 # Do not include art debug targets
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 
