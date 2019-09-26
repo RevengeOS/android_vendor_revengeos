@@ -29,15 +29,15 @@ PRODUCT_COPY_FILES += \
 # Backup Tool
 ifeq ($(AB_OTA_UPDATER),true)
 PRODUCT_COPY_FILES += \
-    vendor/revengeos/build/tools/backuptool_ab.sh:system/bin/backuptool_ab.sh \
-    vendor/revengeos/build/tools/backuptool_ab.functions:system/bin/backuptool_ab.functions \
-    vendor/revengeos/build/tools/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
+    vendor/revengeos/prebuilt/common/bin/backuptool_ab.sh:system/bin/backuptool_ab.sh \
+    vendor/revengeos/prebuilt/common/bin/backuptool_ab.functions:system/bin/backuptool_ab.functions \
+    vendor/revengeos/prebuilt/common/bin/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
 endif
 
 PRODUCT_COPY_FILES += \
-    vendor/revengeos/build/tools/backuptool.sh:install/bin/backuptool.sh \
-    vendor/revengeos/build/tools/backuptool.functions:install/bin/backuptool.functions \
-    vendor/revengeos/build/tools/50-cm.sh:system/addon.d/50-cm.sh
+    vendor/revengeos/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/revengeos/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/revengeos/prebuilt/common/bin/50-cm.sh:system/addon.d/50-cm.sh
 
 # Do not include art debug targets
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
