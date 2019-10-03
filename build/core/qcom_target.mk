@@ -33,15 +33,14 @@ $(call set-device-specific-path,VR,vr,hardware/qcom/vr)
 
 ifeq ($(BOARD_USES_AOSP_WLAN_HAL),true)
 $(call wlan-set-path-variant,wlan)
-PRODUCT_CFI_INCLUDE_PATHS += \
-    hardware/qcom/wlan/qcwcn/wpa_supplicant_8_lib
 else
 $(call wlan-set-path-variant,wlan-caf)
-PRODUCT_CFI_INCLUDE_PATHS += \
-    hardware/qcom/wlan-caf/qcwcn/wpa_supplicant_8_lib
 endif
 
 $(call bt-vendor-set-path-variant,bt-caf)
+
+PRODUCT_CFI_INCLUDE_PATHS += \
+    hardware/qcom/wlan-caf/qcwcn/wpa_supplicant_8_lib
 else
 
 $(call project-set-path,qcom-audio,hardware/qcom/audio/default)
