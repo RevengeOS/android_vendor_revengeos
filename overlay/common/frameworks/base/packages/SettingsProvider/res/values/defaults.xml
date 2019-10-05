@@ -24,4 +24,6 @@
     <bool name="def_screen_brightness_automatic_mode">true</bool>
     <integer name="def_screen_brightness">82</integer>
     <integer name="def_screen_off_timeout">30000</integer>
+
+    <string name="def_backup_transport">com.google.android.gms/.backup.BackupTransportService</string>
 </resources>
