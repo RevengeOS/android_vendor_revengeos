@@ -10,7 +10,7 @@ $(call add_json_bool, Needs_text_relocations,                $(filter true,$(TAR
 $(call add_json_str,  Specific_camera_parameter_library,     $(TARGET_SPECIFIC_CAMERA_PARAMETER_LIBRARY))
 $(call add_json_bool, Supports_hw_fde, $(filter true,$(TARGET_HW_DISK_ENCRYPTION)))
 $(call add_json_bool, Supports_hw_fde_perf, $(filter true,$(TARGET_HW_DISK_ENCRYPTION_PERF)))
-$(call add_json_bool, Should_skip_waiting_for_qsee, $(filter true,$(TARGET_KEYMASTER_SKIP_WAITING_FOR_QSEE)))
+$(call add_json_bool, Should_wait_for_qsee, $(filter true,$(TARGET_KEYMASTER_SKIP_WAITING_FOR_QSEE)))
 $(call add_json_val_default, Bootloader_message_offset, $(BOOTLOADER_MESSAGE_OFFSET), 0)
 $(call add_json_str_omitempty, Target_process_sdk_version_override, $(TARGET_PROCESS_SDK_VERSION_OVERRIDE))
 $(call add_json_str,  Target_shim_libs,                      $(TARGET_LD_SHIM_LIBS))
