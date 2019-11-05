@@ -685,8 +685,5 @@ if [ -z ${CCACHE_EXEC} ]; then
     fi
 fi
 
-# Java compiler hax
-export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
-
 # Allow GCC 4.9
 export TEMPORARY_DISABLE_PATH_RESTRICTIONS=true
