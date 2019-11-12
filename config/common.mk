@@ -64,6 +64,12 @@ include vendor/revengeos/config/props.mk
 # RevengeUI
 include vendor/revengeui/config.mk
 
+# Default sounds
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.config.notification_sound=Iapetus.ogg \
+    ro.config.alarm_alert=Argon.ogg \
+    ro.config.ringtone=Ganymede.ogg
+
 # Sensitive Phone Numbers list
 PRODUCT_COPY_FILES += \
     vendor/revengeos/prebuilt/common/etc/sensitive_pn.xml:system/etc/sensitive_pn.xml
