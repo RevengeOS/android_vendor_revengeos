@@ -68,7 +68,7 @@ include vendor/revengeui/config.mk
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.config.notification_sound=Iapetus.ogg \
     ro.config.alarm_alert=Argon.ogg \
-    ro.config.ringtone=Ganymede.ogg
+    ro.config.ringtone=Ganymede.ogg,Ganymede.ogg
 
 # Sensitive Phone Numbers list
 PRODUCT_COPY_FILES += \
