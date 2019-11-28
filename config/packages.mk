@@ -21,7 +21,8 @@ PRODUCT_PACKAGES += \
     LatinIME \
     Launcher3QuickStep \
     messaging \
-    Stk
+    Stk \
+    Snap
 
 # RevengeOS packages
 PRODUCT_PACKAGES += \
