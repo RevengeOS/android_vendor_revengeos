@@ -57,7 +57,7 @@ PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 
 # Dex preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    SystemUIGoogle
+    SystemUI
 
 # Packages
 include vendor/revengeos/config/packages.mk
