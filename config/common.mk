@@ -65,7 +65,7 @@ include vendor/revengeos/config/props.mk
 include vendor/revengeui/config.mk
 
 # Default sounds
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+PRODUCT_PRODUCT_PROPERTIES += \
     ro.config.notification_sound=Iapetus.ogg \
     ro.config.alarm_alert=Argon.ogg \
     ro.config.ringtone=Ganymede.ogg,Ganymede.ogg
