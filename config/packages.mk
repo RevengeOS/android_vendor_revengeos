@@ -69,10 +69,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Exchange2
 
-# exFAT tools
- PRODUCT_PACKAGES += \
+# Filesystems tools
+PRODUCT_PACKAGES += \
     fsck.exfat \
-    mkfs.exfat
+    fsck.ntfs \
+    mke2fs \
+    mkfs.exfat \
+    mkfs.ntfs \
+    mount.ntfs
 
 # Openssh
 PRODUCT_PACKAGES += \
