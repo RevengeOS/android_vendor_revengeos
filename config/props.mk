@@ -41,6 +41,12 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.build.selinux=1 \
     persist.sys.root_access=0
 
+# Default sounds
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.config.ringtone=Ganymede.ogg \
+    ro.config.notification_sound=Carme.ogg \
+    ro.config.alarm_alert=Argon.ogg
+
 # Media
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     media.recorder.show_manufacturer_and_model=true
