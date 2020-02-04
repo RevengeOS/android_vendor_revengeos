@@ -79,3 +79,7 @@ PRODUCT_COPY_FILES += \
     vendor/revengeos/config/permissions/privapp-permissions-livedisplay-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-livedisplay-product.xml \
     vendor/revengeos/config/permissions/privapp-permissions-revengeos-system.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-revengeos-system.xml \
     vendor/revengeos/config/permissions/privapp-permissions-revengeos-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-revengeos-product.xml
+
+# Hidden API whitelist
+PRODUCT_COPY_FILES += \
+    vendor/revengeos/config/sysconfig/revengeos-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/revengeos-hiddenapi-package-whitelist.xml
