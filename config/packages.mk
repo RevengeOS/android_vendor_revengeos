@@ -37,6 +37,10 @@ PRODUCT_PACKAGES += \
    Updates
 endif
 
+# Screenshot
+PRODUCT_PACKAGES += \
+    Screenshot
+
 # World APN list
 PRODUCT_PACKAGES += \
     apns-conf.xml

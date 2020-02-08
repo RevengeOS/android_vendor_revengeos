@@ -67,3 +67,7 @@ include vendor/revengeui/config.mk
 # Sensitive Phone Numbers list
 PRODUCT_COPY_FILES += \
     vendor/revengeos/prebuilt/common/etc/sensitive_pn.xml:system/etc/sensitive_pn.xml
+
+# Screenshot permissions
+PRODUCT_COPY_FILES += \
+    vendor/revengeos/config/permissions/com.android.screenshot.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.android.screenshot.xml
