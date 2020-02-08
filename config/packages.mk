@@ -31,6 +31,12 @@ PRODUCT_PACKAGES += \
     WeatherIcons \
     ViaBrowser
 
+# Updates
+ifeq ($(REVENGEOS_BUILDTYPE),OFFICIAL)
+PRODUCT_PACKAGES += \
+   Updates
+endif
+
 # World APN list
 PRODUCT_PACKAGES += \
     apns-conf.xml
