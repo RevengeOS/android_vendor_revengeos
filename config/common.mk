@@ -69,6 +69,11 @@ PRODUCT_COPY_FILES += \
     vendor/revengeos/prebuilt/common/etc/sensitive_pn.xml:system/etc/sensitive_pn.xml
 
 # Priv-app permissions
+ifeq ($(REVENGEOS_BUILDTYPE),OFFICIAL)
+PRODUCT_COPY_FILES += \
+    vendor/revengeos/config/permissions/com.revengeos.ota.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.revengeos.ota.xml
+endif
+
 PRODUCT_COPY_FILES += \
     vendor/revengeos/config/permissions/com.android.screenshot.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.android.screenshot.xml \
     vendor/revengeos/config/permissions/privapp-permissions-livedisplay-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-livedisplay-product.xml \
