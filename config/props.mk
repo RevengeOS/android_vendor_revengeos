@@ -42,7 +42,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.sys.root_access=0
 
 # Default sounds
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.ringtone=Ganymede.ogg \
     ro.config.notification_sound=Carme.ogg \
     ro.config.alarm_alert=Argon.ogg
