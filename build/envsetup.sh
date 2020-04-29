@@ -704,5 +704,50 @@ if [ -z ${CCACHE_EXEC} ]; then
     fi
 fi
 
+function push_update(){
+    a=()
+    devices_dir=$(pwd)/device/revengeos/official_devices
+
+    # Ask the user for login details
+    read -p 'ODSN Username: ' uservar
+    read -p 'Zip name: ' zipvar
+
+    for s in $(echo $zipvar | tr "-" "\n")
+    do
+        a+=("$s")
+    done
+
+    out_dir=$(pwd)/out/target/product/$target_device/
+    version=${a[1]}
+    target_device=${a[4]}
+    size=$(stat -c%s "$out_dir$zipvar")
+    md5=$(md5sum "$out_dir$zipvar")
+
+    echo "Uploading build to ODSN"
+
+    scp $out_dir/$zipvar ${uservar}@storage.osdn.net:/storage/groups/r/re/revengeos/$target_device
+
+    echo "Generating json"
+
+    python3 $(pwd)/vendor/revengeos/build/tools/generatejson.py $target_device $zipvar $version $size $md5
+
+    if [ -d "$devices_dir/$target_device" ]; then
+          mv $(pwd)/device.json $devices_dir/$target_device
+         mv $(pwd)/changelog.txt $devices_dir/$target_device
+    else
+        mkdir devices_dir/$target_device
+        mv $(pwd)/device.json $devices_dir/$target_device
+        mv $(pwd)/changelog.txt $devices_dir/$target_device
+    fi
+
+    echo "Pushing to Official devices"
+
+    cd $devices_dir
+    git add $target_device && git commit -m "Update $target_device"
+    git pull --rebase https://github.com/RevengeOS-Devices/official_devices.git
+    git push https://github.com/RevengeOS-Devices/official_devices.git HEAD:r10.0
+
+}
+
 # Allow GCC 4.9
 export TEMPORARY_DISABLE_PATH_RESTRICTIONS=true
