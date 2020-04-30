@@ -708,7 +708,7 @@ function push_update(){
     a=()
     devices_dir=$(pwd)/device/revengeos/official_devices
 
-    # Ask the user for login details
+    # Ask the maintainer for login details
     read -p 'ODSN Username: ' uservar
     read -p 'Zip name: ' zipvar
 
@@ -732,8 +732,8 @@ function push_update(){
     python3 $(pwd)/vendor/revengeos/build/tools/generatejson.py $target_device $zipvar $version $size $md5
 
     if [ -d "$devices_dir/$target_device" ]; then
-          mv $(pwd)/device.json $devices_dir/$target_device
-         mv $(pwd)/changelog.txt $devices_dir/$target_device
+        mv $(pwd)/device.json $devices_dir/$target_device
+        mv $(pwd)/changelog.txt $devices_dir/$target_device
     else
         mkdir devices_dir/$target_device
         mv $(pwd)/device.json $devices_dir/$target_device
