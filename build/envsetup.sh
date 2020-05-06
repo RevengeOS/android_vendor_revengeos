@@ -710,7 +710,7 @@ function push_update(){(
     devices_dir=$(pwd)/vendor/revengeos/official_devices
 
     if [ ! -f "$(pwd)/changelog.txt" ]; then
-        echo "Create changelog.txt folder in build directory"
+        echo "Create changelog.txt file in build directory"
         echo "Aborting..."
         return 0
     fi
