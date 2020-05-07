@@ -742,7 +742,7 @@ function push_update(){(
         mv $(pwd)/device.json $devices_dir/$target_device
         mv $(pwd)/changelog.txt $devices_dir/$target_device
     else
-        mkdir devices_dir/$target_device
+        mkdir $devices_dir/$target_device
         mv $(pwd)/device.json $devices_dir/$target_device
         mv $(pwd)/changelog.txt $devices_dir/$target_device
     fi
