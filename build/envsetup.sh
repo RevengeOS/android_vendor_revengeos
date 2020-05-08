@@ -707,7 +707,7 @@ fi
 function push_update(){(
     set -e
     a=()
-    devices_dir=$(pwd)/vendor/revengeos/official_devices
+    devices_dir=$(pwd)/official_devices
 
     if [ ! -f "$(pwd)/changelog.txt" ]; then
         echo "Create changelog.txt file in build directory"
@@ -738,6 +738,12 @@ function push_update(){(
 
     python3 $(pwd)/vendor/revengeos/build/tools/generatejson.py $target_device $zipvar $version $size $md5
 
+    if [ -d "$devices_dir" ]; then
+        rm -rf $devices_dir
+    fi
+
+    git clone https://github.com/RevengeOS-Devices/official_devices.git $devices_dir
+
     if [ -d "$devices_dir/$target_device" ]; then
         mv $(pwd)/device.json $devices_dir/$target_device
         mv $(pwd)/changelog.txt $devices_dir/$target_device
@@ -751,8 +757,8 @@ function push_update(){(
 
     cd $devices_dir
     git add $target_device && git commit -m "Update $target_device"
-    git pull --rebase https://github.com/RevengeOS-Devices/official_devices.git
     git push https://github.com/RevengeOS-Devices/official_devices.git HEAD:r10.0
+    rm -rf $devices_dir
 )}
 
 # Allow GCC 4.9
