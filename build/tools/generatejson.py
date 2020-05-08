@@ -27,7 +27,7 @@ dictionary ={
 	"filename": zipvar,
 	"id": "",
 	"size": size,
-	"url": "https://gensho.ftp.acc.umu.se/mirror/osdn.net/storage/g/r/re/revengeos/" + device + "/" + zipvar,
+	"url": "https://osdn.net/frs/redir.php?f=%2Fstorage%2Fg%2Fr%2Fre%2Frevengeos%2F" + device + "%2F" + zipvar,
 	"version": version,
 	"filehash": md5
 }
