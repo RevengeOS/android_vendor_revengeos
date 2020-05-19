@@ -715,9 +715,9 @@ function push_update(){(
         return 0
     fi
 
-    # Ask the maintainer for login details
+    # Ask the maintainer Username
     read -p 'ODSN Username: ' uservar
-    read -p 'Zip name: ' zipvar
+    
 
     for s in $(echo $zipvar | tr "-" "\n")
     do
@@ -732,7 +732,7 @@ function push_update(){(
 
     echo "Uploading build to ODSN"
 
-    scp $out_dir/$zipvar ${uservar}@storage.osdn.net:/storage/groups/r/re/revengeos/$target_device
+    scp $out_dir/RevengeOS-*.zip ${uservar}@storage.osdn.net:/storage/groups/r/re/revengeos/$target_device
 
     echo "Generating json"
 
