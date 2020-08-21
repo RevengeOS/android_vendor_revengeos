@@ -731,7 +731,10 @@ function push_update(){(
     md5=$(md5sum "$out_dir$zipvar")
 
     echo "Uploading build to ODSN"
-
+    
+    # Create Directory if it don't exist
+    ssh ${uservar}@storage.osdn.net:/storage/groups/r/re/revengeos "mkdir -p $target_device"
+    
     scp $out_dir/$zipvar ${uservar}@storage.osdn.net:/storage/groups/r/re/revengeos/$target_device
 
     echo "Generating json"
