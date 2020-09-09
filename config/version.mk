@@ -12,9 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-REVENGEOS_CODENAME := Q
-REVENGEOS_REVISION := 3
-REVENGEOS_SUBREVISION := 2
+REVENGEOS_CODENAME := R
+REVENGEOS_REVISION := 4
+REVENGEOS_SUBREVISION := 0
 
 REVENGEOS_VERSION := $(REVENGEOS_REVISION).$(REVENGEOS_SUBREVISION)
 REVENGEOS_BUILD_DATE := $(shell date -u +%Y%m%d-%H%M)
