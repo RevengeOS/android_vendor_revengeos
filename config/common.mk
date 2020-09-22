@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+include vendor/revengeos/config/fingerprint.mk
 include vendor/revengeos/config/version.mk
 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/revengeos/overlay

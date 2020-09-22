@@ -30,11 +30,19 @@ REVENGEOS_BUILD_ID := $(REVENGEOS_VERSION)-$(REVENGEOS_CODENAME)-$(REVENGEOS_BUI
 REVENGEOS_BUILD_FINGERPRINT := RevengeOS/$(REVENGEOS_VERSION)/$(TARGET_PRODUCT_SHORT)/$(REVENGEOS_BUILD_DATE)
 
 # Apply it to build.prop
+<<<<<<< HEAD
 ADDITIONAL_BUILD_PROPERTIES += \
+=======
+PRODUCT_PRODUCT_PROPERTIES += \
+>>>>>>> baabd8777c25b2bc84a0e6edc91abc70459f5f47
     ro.revengeos.fingerprint=$(REVENGEOS_BUILD_FINGERPRINT) \
     ro.revengeos.version=$(REVENGEOS_VERSION) \
     ro.revengeos.build_id=RevengeOS-$(REVENGEOS_BUILD_ID)
 
 ifeq ($(REVENGEOS_BUILDTYPE),OFFICIAL)
+<<<<<<< HEAD
     ADDITIONAL_BUILD_PROPERTIES += ro.ota.revengeos.build_id=$(REVENGEOS_BUILD_ID)
+=======
+    PRODUCT_PRODUCT_PROPERTIES += ro.ota.revengeos.build_id=$(REVENGEOS_BUILD_ID)
+>>>>>>> baabd8777c25b2bc84a0e6edc91abc70459f5f47
 endif
