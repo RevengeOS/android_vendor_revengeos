@@ -761,5 +761,33 @@ function push_update(){(
     rm -rf $devices_dir
 )}
 
+
+function xda_push(){(
+    if [ ! -f "$(pwd)/changelog.txt" ]; then
+        echo "Create changelog.txt file in build directory"
+        echo "Aborting..."
+        return 0
+    fi
+
+   if [ ! -f "$(pwd)/vendor/build/config.env" ]; then
+       echo "config.env files not found in vendor/build/tools please enter details"
+   else
+    # Ask the maintainer for login details
+    read -p 'XDA_USERNAME: ' xdauser
+    read -p 'XDA_PASSWORD: ' xdapass
+    echo "For XDA_THREAD_ID goto your thread link and grab the integers after t"
+    echo "For eg: https://forum.xda-developers.com/lenovo-z6-pro/development/android-10-revengeos-3-1-lenovo-z6-pro-t4030703 Thread ID:4030703"
+    read -p 'XDA_THREAD_ID: ' xdaid
+  fi
+
+    export XDA_USERNAME=$xdauser
+    export XDA_PASSWORD=$xdapass
+    export XDA_THREAD_ID=$xdaid
+    export FILE=$(pwd)/changelog.txt
+
+    python3 $(pwd)/vendor/revengeos/build/tools/xdakey.py
+    python3 $(pwd)/vendor/revengeos/build/tools/xdapost.py
+)}
+
 # Allow GCC 4.9
 export TEMPORARY_DISABLE_PATH_RESTRICTIONS=true
