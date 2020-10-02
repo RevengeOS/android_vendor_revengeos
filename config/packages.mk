@@ -38,6 +38,11 @@ PRODUCT_PACKAGES += \
     ViaBrowser \
     WeatherProvider
 
+# Navbar
+PRODUCT_PACKAGES += \
+    GesturalNavigationOverlayLong \
+    GesturalNavigationOverlayMedium
+
 # Updates
 ifeq ($(REVENGEOS_BUILDTYPE),OFFICIAL)
 PRODUCT_PACKAGES += \
@@ -126,4 +131,3 @@ endif
 # Charger images
 PRODUCT_PACKAGES += \
     charger_res_images
-
