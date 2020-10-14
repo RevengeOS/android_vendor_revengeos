@@ -1,12 +1,4 @@
 bootstrap_go_package {
-    name: "soong-revengeos",
-    pkgPath: "revengeos/soong/android",
-    srcs: [
-        "android/variable.go",
-    ],
-}
-
-bootstrap_go_package {
     name: "soong-revengeos-generator",
     pkgPath: "revengeos/soong/generator",
     deps: [
