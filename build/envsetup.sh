@@ -791,3 +791,7 @@ function xda_push(){(
 
 # Allow GCC 4.9
 export TEMPORARY_DISABLE_PATH_RESTRICTIONS=true
+
+# Define our ROM for SmartBuild-enabled device trees
+export SMARTBUILD_RELEASE=revengeos
+
