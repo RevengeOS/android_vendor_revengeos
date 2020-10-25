@@ -15,6 +15,9 @@
 
 # Required packages
 PRODUCT_PACKAGES += \
+    com.revengeos.platform-res \
+
+PRODUCT_PACKAGES += \
     BluetoothExt \
     Calendar \
     ExactCalculator \
