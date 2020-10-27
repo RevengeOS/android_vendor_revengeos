@@ -31,8 +31,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     RetroMusicPlayer \
     RevengeOSCalculator \
-    OmniJaws \
-    WeatherIcons \
     ViaBrowser
 
 # Updates
