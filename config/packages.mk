@@ -22,7 +22,7 @@ PRODUCT_PACKAGES += \
     Calendar \
     ExactCalculator \
     LatinIME \
-    Launcher3QuickStep \
+    RevengeLauncherQuickStep \
     messaging \
     Stk \
     Snap
