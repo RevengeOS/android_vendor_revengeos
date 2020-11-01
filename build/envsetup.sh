@@ -707,7 +707,9 @@ fi
 function push_update(){(
     set -e
     a=()
+    repopath="$(pwd)"
     devices_dir=$(pwd)/official_devices
+    ota_scripts=$(pwd)/ota_scripts
 
     if [ ! -f "$(pwd)/changelog.txt" ]; then
         echo "Create changelog.txt file in build directory"
@@ -716,7 +718,7 @@ function push_update(){(
     fi
 
     # Ask the maintainer for login details
-    read -p 'ODSN Username: ' uservar
+    read -p 'OSDN Username: ' uservar
     read -p 'Zip name: ' zipvar
 
     for s in $(echo $zipvar | tr "-" "\n")
@@ -730,7 +732,7 @@ function push_update(){(
     size=$(stat -c%s "$out_dir$zipvar")
     md5=$(md5sum "$out_dir$zipvar")
 
-    echo "Uploading build to ODSN"
+    echo "Uploading build to OSDN"
 
     scp $out_dir/$zipvar ${uservar}@storage.osdn.net:/storage/groups/r/re/revengeos/$target_device
 
@@ -754,11 +756,17 @@ function push_update(){(
     fi
 
     echo "Pushing to Official devices"
-
     cd $devices_dir
     git add $target_device && git commit -m "Update $target_device"
-    git push https://github.com/RevengeOS-Devices/official_devices.git HEAD:r10.0
+    git push https://github.com/RevengeOS-Devices/official_devices.git HEAD:master
+    cd $repopath
     rm -rf $devices_dir
+
+    echo "Triggering ota_scripts"
+    git clone https://github.com/RevengeOS-Devices/ota_scripts.git $ota_scripts
+    cd $ota_scripts
+    echo "$(date)" > file && git add . && git commit -m "trigger"
+    git push https://github.com/RevengeOS-Devices/ota_scripts.git HEAD:master
 )}
 
 
@@ -794,4 +802,3 @@ export TEMPORARY_DISABLE_PATH_RESTRICTIONS=true
 
 # Define our ROM for SmartBuild-enabled device trees
 export SMARTBUILD_RELEASE=revengeos
-
