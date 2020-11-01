@@ -767,6 +767,8 @@ function push_update(){(
     cd $ota_scripts
     echo "$(date)" > file && git add . && git commit -m "trigger"
     git push https://github.com/RevengeOS-Devices/ota_scripts.git HEAD:master
+    cd $repopath
+    rm -rf $ota_scripts
 )}
 
 
