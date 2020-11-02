@@ -710,6 +710,7 @@ function push_update(){(
     repopath="$(pwd)"
     devices_dir=$(pwd)/official_devices
     ota_scripts=$(pwd)/ota_scripts
+    out_dir_base=$(pwd)/out/target/product
 
     if [ ! -f "$(pwd)/changelog.txt" ]; then
         echo "Create changelog.txt file in build directory"
@@ -719,26 +720,73 @@ function push_update(){(
 
     # Ask the maintainer for login details
     read -p 'OSDN Username: ' uservar
-    read -p 'Zip name: ' zipvar
 
-    for s in $(echo $zipvar | tr "-" "\n")
+    for devicename in $(ls $out_dir_base)
+    do
+    	echo -n "Is $devicename your device codename? (y/n) " 
+    	read device_choice
+    	case $device_choice in
+    		y | Y)			
+    			target_device=$devicename
+    			break
+    			;;
+    		n | N)
+				# do nothing
+				;;
+			*)
+				echo "Try again."
+				return 0
+				;;
+		esac
+    done
+
+    if [ "$target_device" == "" ]; then
+    	echo "Please select a device."
+    	return 0
+    fi
+
+    out_dir=$(pwd)/out/target/product/$target_device
+
+    for zipfile in $(ls $out_dir)
+    do
+    	echo -n "Is $zipfile your zip file? (y/n) "
+    	read zipname_choice
+    	case $zipname_choice in
+    		y | Y)			
+    			zipname=$zipfile
+    			break
+    			;;
+    		n | N)
+				# do nothing
+				;;
+			*)
+				echo "Try again."
+				return 0
+				;;
+		esac
+	done
+
+	if [ "$zipname" == "" ]; then
+		echo "Please select a zip file."
+		return 0
+	fi
+
+    for s in $(echo $zipname | tr "-" "\n")
     do
         a+=("$s")
     done
 
-    target_device=${a[4]}
-    out_dir=$(pwd)/out/target/product/$target_device/
     version=${a[1]}
-    size=$(stat -c%s "$out_dir$zipvar")
-    md5=$(md5sum "$out_dir$zipvar")
+    size=$(stat -c%s "$out_dir/$zipname")
+    md5=$(md5sum "$out_dir/$zipname")
 
     echo "Uploading build to OSDN"
 
-    scp $out_dir/$zipvar ${uservar}@storage.osdn.net:/storage/groups/r/re/revengeos/$target_device
+    scp $out_dir/$zipname ${uservar}@storage.osdn.net:/storage/groups/r/re/revengeos/$target_device
 
     echo "Generating json"
 
-    python3 $(pwd)/vendor/revengeos/build/tools/generatejson.py $target_device $zipvar $version $size $md5
+    python3 $(pwd)/vendor/revengeos/build/tools/generatejson.py $target_device $zipname $version $size $md5
 
     if [ -d "$devices_dir" ]; then
         rm -rf $devices_dir
