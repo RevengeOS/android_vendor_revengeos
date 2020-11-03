@@ -718,53 +718,72 @@ function push_update(){(
         return 0
     fi
 
-    # Ask the maintainer for login details
-    read -p 'OSDN Username: ' uservar
+    if [ -e "$(pwd)/push_config.conf" ]; then
+    	echo "Found push_config.conf! Importing vars."
+    	set -a
+    	. "$(pwd)/push_config.conf"
+    	set +a
+    	if [ "$uservar" == "" ]; then
+    		echo "uservar not exported, aborting."
+    		return 0
+    	elif [ "$target_device" == "" ]; then
+    		echo "target_device not exported, aborting."
+    		return 0
+    	fi
+    	out_dir=$(pwd)/out/target/product/$target_device
+    	cd $out_dir/
+    	echo "Picking automatically the newer zip file..."
+    	zipname=$(ls -t *.zip | head -n1)
+    	cd $repopath
+    else
+    	# Ask the maintainer for login details
+    	read -p 'OSDN Username: ' uservar
 
-    for devicename in $(ls $out_dir_base)
-    do
-    	echo -n "Is $devicename your device codename? (y/n) " 
-    	read device_choice
-    	case $device_choice in
-    		y | Y)			
-    			target_device=$devicename
-    			break
-    			;;
-    		n | N)
-				# do nothing
-				;;
-			*)
-				echo "Try again."
-				return 0
-				;;
-		esac
-    done
+    	for devicename in $(ls $out_dir_base)
+    	do
+    		echo -n "Is $devicename your device codename? (y/n) " 
+    		read device_choice
+    		case $device_choice in
+				y | Y)			
+					target_device=$devicename
+					break
+					;;
+				n | N)
+					# do nothing
+					;;
+				*)
+					echo "Try again."
+					return 0
+					;;
+			esac
+    	done
 
-    if [ "$target_device" == "" ]; then
-    	echo "Please select a device."
-    	return 0
-    fi
+    	if [ "$target_device" == "" ]; then
+    		echo "Please select a device."
+    		return 0
+    	fi
 
-    out_dir=$(pwd)/out/target/product/$target_device
+    	out_dir=$(pwd)/out/target/product/$target_device
 
-    for zipfile in $(ls $out_dir)
-    do
-    	echo -n "Is $zipfile your zip file? (y/n) "
-    	read zipname_choice
-    	case $zipname_choice in
-    		y | Y)			
-    			zipname=$zipfile
-    			break
-    			;;
-    		n | N)
-				# do nothing
-				;;
-			*)
-				echo "Try again."
-				return 0
-				;;
-		esac
-	done
+    	for zipfile in $(ls $out_dir)
+    	do
+			echo -n "Is $zipfile your zip file? (y/n) "
+			read zipname_choice
+			case $zipname_choice in
+				y | Y)			
+					zipname=$zipfile
+					break
+					;;
+				n | N)
+					# do nothing
+					;;
+				*)
+					echo "Try again."
+					return 0
+					;;
+			esac
+		done
+	fi
 
 	if [ "$zipname" == "" ]; then
 		echo "Please select a zip file."
