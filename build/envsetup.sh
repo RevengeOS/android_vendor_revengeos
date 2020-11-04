@@ -764,8 +764,9 @@ function push_update(){(
     	fi
 
     	out_dir=$(pwd)/out/target/product/$target_device
+        cd $out_dir
 
-    	for zipfile in $(ls $out_dir)
+    	for zipfile in $(ls *.zip)
     	do
 			echo -n "Is $zipfile your zip file? (y/n) "
 			read zipname_choice
@@ -794,6 +795,8 @@ function push_update(){(
     do
         a+=("$s")
     done
+	
+	cd $repopath
 
     version=${a[1]}
     size=$(stat -c%s "$out_dir/$zipname")
