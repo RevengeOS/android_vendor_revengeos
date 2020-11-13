@@ -28,6 +28,7 @@ dictionary ={
 	"id": "",
 	"size": size,
 	"url": "https://osdn.net/frs/redir.php?f=%2Fstorage%2Fg%2Fr%2Fre%2Frevengeos%2F" + device + "%2F" + zipvar,
+	"download_new": "https://download.revengeos.com/download/" + device,
 	"version": version,
 	"filehash": md5
 }
