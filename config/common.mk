@@ -36,8 +36,8 @@ PRODUCT_COPY_FILES += \
 endif
 
 PRODUCT_COPY_FILES += \
-    vendor/revengeos/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/revengeos/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/revengeos/prebuilt/common/bin/backuptool.sh:$(TARGET_COPY_OUT_SYSTEM)/install/bin/backuptool.sh \
+    vendor/revengeos/prebuilt/common/bin/backuptool.functions:$(TARGET_COPY_OUT_SYSTEM)/install/bin/backuptool.functions \
     vendor/revengeos/prebuilt/common/bin/50-cm.sh:system/addon.d/50-cm.sh
 
 # Copy all custom init rc files
@@ -46,7 +46,7 @@ $(foreach f,$(wildcard vendor/revengeos/prebuilt/common/etc/init/*.rc),\
 
 # system mount
 PRODUCT_COPY_FILES += \
-    vendor/revengeos/prebuilt/common/bin/system-mount.sh:install/bin/system-mount.sh
+    vendor/revengeos/prebuilt/common/bin/system-mount.sh:$(TARGET_COPY_OUT_SYSTEM)/install/bin/system-mount.sh
 
 # Do not include art debug targets
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
