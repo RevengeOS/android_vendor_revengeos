@@ -29,6 +29,7 @@ PRODUCT_PACKAGES += \
 
 # RevengeOS packages
 PRODUCT_PACKAGES += \
+    QKSMS \
     RetroMusicPlayer \
     RevengeOSCalculator \
     ViaBrowser \
