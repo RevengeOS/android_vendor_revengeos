@@ -32,6 +32,7 @@ PRODUCT_PACKAGES += \
     QKSMS \
     RetroMusicPlayer \
     RevengeOSCalculator \
+    SimpleWeather \
     ViaBrowser \
     WeatherProvider
 
