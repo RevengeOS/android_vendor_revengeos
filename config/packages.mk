@@ -33,7 +33,7 @@ PRODUCT_PACKAGES += \
     RetroMusicPlayer \
     RevengeOSCalculator \
     ViaBrowser \
-    SimpleWeather
+    WeatherProvider
 
 # Updates
 ifeq ($(REVENGEOS_BUILDTYPE),OFFICIAL)
