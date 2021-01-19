@@ -156,12 +156,12 @@ def add_to_manifest(repos, fallback_branch=None):
             continue
 
         existing_m_project = None
-        if exists_in_tree(mlm, repo_target) != None:
-           existing_m_project = exists_in_tree(mlm, repo_target)
-        elif exists_in_tree(fluidm, repo_target) != None:
-             existing_m_project = exists_in_tree(fluidm, repo_target)
-        elif exists_in_tree(lineagem, repo_target) != None:
-             existing_m_project = exists_in_tree(lineagem, repo_target)
+        if exists_in_tree(mlm, repo_path) != None:
+           existing_m_project = exists_in_tree(mlm, repo_path)
+        elif exists_in_tree(fluidm, repo_path) != None:
+             existing_m_project = exists_in_tree(fluidm, repo_path)
+        elif exists_in_tree(lineagem, repo_path) != None:
+             existing_m_project = exists_in_tree(lineagem, repo_path)
 
         if existing_m_project != None:
             if existing_m_project.attrib['path'] == repo['target_path']:
