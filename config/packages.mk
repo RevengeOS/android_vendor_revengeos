@@ -33,6 +33,8 @@ PRODUCT_PACKAGES += \
     RetroMusicPlayer \
     RevengeOSCalculator \
     SimpleWeather \
+    SimpleGalleryPro \
+    Etar \
     ViaBrowser \
     WeatherProvider
 
