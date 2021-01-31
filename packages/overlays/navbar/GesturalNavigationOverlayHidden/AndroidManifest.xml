@@ -19,8 +19,8 @@
         package="com.custom.overlay.systemui.gestural.hidden"
         android:versionCode="1"
         android:versionName="1.0">
-    <overlay android:targetPackage="android"
-        android:category="com.android.internal.navigation_bar_mode"
+    <overlay android:targetPackage="com.android.systemui"
+        android:category="android.customization.navbar_length"
         android:priority="1"/>
 
     <application android:label="@string/navigation_bar_length_hidden" android:hasCode="false"/>
