@@ -711,6 +711,7 @@ function push_update(){(
     devices_dir=$(pwd)/official_devices
     ota_scripts=$(pwd)/ota_scripts
     out_dir_base=$(pwd)/out/target/product
+    clean_flash=no
 
     if [ ! -f "$(pwd)/changelog.txt" ]; then
         echo "Create changelog.txt file in build directory"
@@ -737,7 +738,7 @@ function push_update(){(
         cd $repopath
     else
         # Ask the maintainer for login details
-        read -p 'OSDN Username: ' uservar
+        read -p 'Sourceforge Username: ' uservar
 
         for devicename in $(ls $out_dir_base)
         do
@@ -791,6 +792,14 @@ function push_update(){(
         return 0
     fi
 
+    read -p 'Clean flash suggested or required? (yes/no)' clean_flash
+    if [ "$clean_flash" == "yes" ] || [ "$clean_flash" == "no" ]; then
+        echo "Clean flash var set."
+    else
+    	echo "Please just type yes or no."
+    	return 0
+    fi
+
     for s in $(echo $zipname | tr "-" "\n")
     do
         a+=("$s")
@@ -802,13 +811,23 @@ function push_update(){(
     size=$(stat -c%s "$out_dir/$zipname")
     md5=$(md5sum "$out_dir/$zipname")
 
-    echo "Uploading build to OSDN"
+    echo "Checking if remote device folder exists."
 
-    scp $out_dir/$zipname ${uservar}@storage.osdn.net:/storage/groups/r/re/revengeos/$target_device
+    if sftp ${uservar}@frs.sourceforge.net:/home/frs/project/revengeos/${target_device} <<< $'!'; then
+    	echo "Exists! Proceeding."
+    else
+    	echo "Does not exist. Creating one."
+    	mkdir ${target_device}
+    	scp -r ${target_device} ${uservar}@frs.sourceforge.net:/home/frs/p/revengeos
+    fi
 
+    echo "Uploading build to Sourceforge"
+
+    scp $out_dir/$zipname ${uservar}@frs.sourceforge.net:/home/frs/p/revengeos/$target_device
+    
     echo "Generating json"
 
-    python3 $(pwd)/vendor/revengeos/build/tools/generatejson.py $target_device $zipname $version $size $md5
+    python3 $(pwd)/vendor/revengeos/build/tools/generatejson.py $target_device $zipname $version $size $md5 $clean_flash
 
     if [ -d "$devices_dir" ]; then
         rm -rf $devices_dir
@@ -823,6 +842,14 @@ function push_update(){(
         mkdir $devices_dir/$target_device
         mv $(pwd)/device.json $devices_dir/$target_device
         mv $(pwd)/changelog.txt $devices_dir/$target_device
+    fi
+
+    if [ -e "$(pwd)/notes.txt" ]; then
+    	echo "Notes found! Adding 'em to the Telegram's post."
+    	mv $(pwd)/notes.txt $devices_dir/$target_device
+    else
+    	echo "Removing the old notes, if any."
+    	rm -rf $devices_dir/$target_device/notes.txt
     fi
 
     echo "Pushing to Official devices"

@@ -7,6 +7,7 @@ zipvar = sys.argv[2]
 version = sys.argv[3]
 size = sys.argv[4]
 md5 = sys.argv[5]
+clean_flash = sys.argv[6]
 
 donate_url = str(input("Enter donate url, leave blank for default: "))
 news_url = str(input("Enter channel url, leave blank for default: "))
@@ -27,8 +28,9 @@ dictionary ={
 	"filename": zipvar,
 	"id": "",
 	"size": size,
-	"url": "https://osdn.net/frs/redir.php?f=%2Fstorage%2Fg%2Fr%2Fre%2Frevengeos%2F" + device + "%2F" + zipvar,
+	"url": "https://sourceforge.net/projects/revengeos/files/" + device + "/" + zipvar,
 	"download_new": "https://download.revengeos.com/download/" + device,
+	"clean_flash": clean_flash,
 	"version": version,
 	"filehash": md5
 }
