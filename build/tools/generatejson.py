@@ -11,12 +11,16 @@ clean_flash = sys.argv[6]
 
 donate_url = str(input("Enter donate url, leave blank for default: "))
 news_url = str(input("Enter channel url, leave blank for default: "))
+clean_flash_str = str(input("Type yes if clean flash is necessary, otherwise leave blank: "))
 
 if not donate_url:
 	donate_url = "https://paypal.me/lucchetto"
 
 if not news_url:
 	news_url = "https://t.me/RevengeOSNews"
+
+if not clean_flash_str:
+	clean_flash_str = "no"
 
 # Data to be written
 dictionary ={
@@ -30,7 +34,7 @@ dictionary ={
 	"size": size,
 	"url": "https://sourceforge.net/projects/revengeos/files/" + device + "/" + zipvar,
 	"download_new": "https://download.revengeos.com/download/" + device,
-	"clean_flash": clean_flash,
+	"clean_flash": clean_flash_str,
 	"version": version,
 	"filehash": md5
 }

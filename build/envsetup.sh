@@ -711,7 +711,6 @@ function push_update(){(
     devices_dir=$(pwd)/official_devices
     ota_scripts=$(pwd)/ota_scripts
     out_dir_base=$(pwd)/out/target/product
-    clean_flash=no
 
     if [ ! -f "$(pwd)/changelog.txt" ]; then
         echo "Create changelog.txt file in build directory"
@@ -792,14 +791,6 @@ function push_update(){(
         return 0
     fi
 
-    read -p 'Clean flash suggested or required? (yes/no)' clean_flash
-    if [ "$clean_flash" == "yes" ] || [ "$clean_flash" == "no" ]; then
-        echo "Clean flash var set."
-    else
-    	echo "Please just type yes or no."
-    	return 0
-    fi
-
     for s in $(echo $zipname | tr "-" "\n")
     do
         a+=("$s")
@@ -827,8 +818,7 @@ function push_update(){(
     
     echo "Generating json"
 
-    python3 $(pwd)/vendor/revengeos/build/tools/generatejson.py $target_device $zipname $version $size $md5 $clean_flash
-
+    python3 $(pwd)/vendor/revengeos/build/tools/generatejson.py $target_device $zipname $version $size $md5
     if [ -d "$devices_dir" ]; then
         rm -rf $devices_dir
     fi
