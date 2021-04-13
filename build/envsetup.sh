@@ -812,19 +812,30 @@ function push_update(){(
     	scp -r ${target_device} ${uservar}@frs.sourceforge.net:/home/frs/p/revengeos
     fi
 
-    echo "Uploading build to Sourceforge"
+    echo -n "Do you want to upload your zip file? (y/n) "
+    read zipupload_choice
+    case $zipupload_choice in
+        y | Y)			
+            echo "Uploading build to Sourceforge... This may take a while."
+            scp $out_dir/$zipname ${uservar}@frs.sourceforge.net:/home/frs/p/revengeos/$target_device
+            break
+            ;;
+        n | N)
+            # do nothing
+            ;;
+        *)
+            echo "Try again."
+            return 0
+            ;;
+    esac
 
-    scp $out_dir/$zipname ${uservar}@frs.sourceforge.net:/home/frs/p/revengeos/$target_device
-    
     echo "Generating json"
-
     python3 $(pwd)/vendor/revengeos/build/tools/generatejson.py $target_device $zipname $version $size $md5
     if [ -d "$devices_dir" ]; then
         rm -rf $devices_dir
     fi
 
     git clone https://github.com/RevengeOS-Devices/official_devices.git $devices_dir
-
     if [ -d "$devices_dir/$target_device" ]; then
         mv $(pwd)/device.json $devices_dir/$target_device
         mv $(pwd)/changelog.txt $devices_dir/$target_device
