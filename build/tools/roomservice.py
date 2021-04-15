@@ -30,11 +30,13 @@ try:
     import urllib.error
     import urllib.parse
     import urllib.request
+    import shutil
 except ImportError:
     # For python2
     import imp
     import urllib2
     import urlparse
+    import shutil
     urllib = imp.new_module('urllib')
     urllib.error = urllib2
     urllib.parse = urlparse
@@ -56,6 +58,7 @@ github_auth = os.getenv('GITHUB_API_TOKEN', None)
 
 
 local_manifests = '.repo/local_manifests'
+shutil.rmtree(local_manifests)
 if not os.path.exists(local_manifests):
     os.makedirs(local_manifests)
 
