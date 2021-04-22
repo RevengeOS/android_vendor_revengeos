@@ -58,10 +58,10 @@ github_auth = os.getenv('GITHUB_API_TOKEN', None)
 
 
 local_manifests = '.repo/local_manifests'
-shutil.rmtree(local_manifests)
+shutil.rmtree(local_manifests, True)
 if not os.path.exists(local_manifests):
     os.makedirs(local_manifests)
-
+os.system('repo sync --force-sync --no-tags --no-clone-bundle -j$(nproc --all)')
 
 def debug(*args, **kwargs):
     if DEBUG:
