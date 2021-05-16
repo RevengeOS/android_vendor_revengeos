@@ -44,15 +44,16 @@ except ImportError:
 
 DEBUG = False
 
-custom_local_manifest = ".repo/local_manifests/fluid.xml"
-custom_default_revision =  os.getenv('ROOMSERVICE_DEFAULT_BRANCH', 'fluid-11')
-custom_dependencies = "fluid.dependencies"
-org_manifest = "fluid-devices"  # leave empty if org is provided in manifest
-org_display = "Project-Fluid-Devices"  # needed for displaying
+custom_local_manifest = ".repo/local_manifests/revengeos.xml"
+custom_default_revision =  os.getenv('ROOMSERVICE_DEFAULT_BRANCH', 'r11.0')
+custom_dependencies = "revengeos.dependencies"
+org_manifest = "devices"  # leave empty if org is provided in manifest
+org_display = "RevengeOS-Devices"  # needed for displaying
 
 default_manifest = ".repo/manifests/default.xml"
-fluid_manifest = ".repo/manifests/snippets/fluid.xml"
-lineage_manifest = ".repo/manifests/snippets/lineage.xml"
+revengeos_manifest = ".repo/manifests/snippets/revengeos.xml"
+other_manifest = ".repo/manifests/snippets/others.xml"
+hardware_manifest = ".repo/manifests/snippets/hardware.xml"
 
 github_auth = os.getenv('GITHUB_API_TOKEN', None)
 
@@ -136,8 +137,9 @@ def is_in_manifest(project_path):
 def add_to_manifest(repos, fallback_branch=None):
     lm = load_manifest(custom_local_manifest)
     mlm = load_manifest(default_manifest)
-    fluidm = load_manifest(fluid_manifest)
-    lineagem = load_manifest(lineage_manifest)
+    revengeosm = load_manifest(revengeos_manifest)
+    otherm = load_manifest(other_manifest)
+    hwm = load_manifest(hardware_manifest)
 
     for repo in repos:
         repo_name = repo['repository']
@@ -160,10 +162,12 @@ def add_to_manifest(repos, fallback_branch=None):
         existing_m_project = None
         if exists_in_tree(mlm, repo_path) != None:
            existing_m_project = exists_in_tree(mlm, repo_path)
-        elif exists_in_tree(fluidm, repo_path) != None:
-             existing_m_project = exists_in_tree(fluidm, repo_path)
-        elif exists_in_tree(lineagem, repo_path) != None:
-             existing_m_project = exists_in_tree(lineagem, repo_path)
+        elif exists_in_tree(revengeosm, repo_path) != None:
+             existing_m_project = exists_in_tree(revengeosm, repo_path)
+        elif exists_in_tree(otherm, repo_path) != None:
+             existing_m_project = exists_in_tree(otherm, repo_path)
+        elif exists_in_tree(hwm, repo_path) != None:
+             existing_m_project = exists_in_tree(hwm, repo_path)
 
         if existing_m_project != None:
             if existing_m_project.attrib['path'] == repo['target_path']:
