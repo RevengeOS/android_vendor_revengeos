@@ -57,9 +57,8 @@ hardware_manifest = ".repo/manifests/snippets/hardware.xml"
 
 github_auth = os.getenv('GITHUB_API_TOKEN', None)
 
-
+os.remove(custom_local_manifest, True)
 local_manifests = '.repo/local_manifests'
-shutil.rmtree(local_manifests, True)
 if not os.path.exists(local_manifests):
     os.makedirs(local_manifests)
 
