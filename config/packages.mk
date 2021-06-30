@@ -25,7 +25,8 @@ PRODUCT_PACKAGES += \
     RevengeLauncherQuickStep \
     messaging \
     Stk \
-    Snap
+    Snap \
+    StitchImage
 
 # RevengeOS packages
 PRODUCT_PACKAGES += \
